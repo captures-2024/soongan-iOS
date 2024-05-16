@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */; };
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
 		BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishView.swift; sourceTree = "<group>"; };
 		BF73033A2BF4A2CB00A482B3 /* Soongan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soongan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonganApp.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			children = (
 				BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */,
 				BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */,
+				AB003E792BF6195B00A163E8 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
+				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
@@ -328,7 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
+				DEVELOPMENT_TEAM = BTX96P3YD4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -358,7 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
+				DEVELOPMENT_TEAM = BTX96P3YD4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
