@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
-		BF7303402BF4A2CB00A482B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* ContentView.swift */; };
+		BF7303402BF4A2CB00A482B3 /* LoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* LoginMainView.swift */; };
 		BF7303422BF4A2CB00A482B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7303412BF4A2CB00A482B3 /* Assets.xcassets */; };
 		BF7303452BF4A2CB00A482B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7303442BF4A2CB00A482B3 /* Preview Assets.xcassets */; };
+		BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73034D2BF4AB6D00A482B3 /* Constants.swift */; };
+		BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303502BF4AD2900A482B3 /* Color+.swift */; };
+		BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303522BF4B3C500A482B3 /* Text+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF73033A2BF4A2CB00A482B3 /* Soongan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soongan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonganApp.swift; sourceTree = "<group>"; };
-		BF73033F2BF4A2CB00A482B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BF73033F2BF4A2CB00A482B3 /* LoginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainView.swift; sourceTree = "<group>"; };
 		BF7303412BF4A2CB00A482B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7303442BF4A2CB00A482B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF73034D2BF4AB6D00A482B3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BF7303502BF4AD2900A482B3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		BF7303522BF4B3C500A482B3 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF607F1A2BF5BF9700770CE7 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		BF607F1B2BF5BFAF00770CE7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BF73033F2BF4A2CB00A482B3 /* LoginMainView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		BF7303312BF4A2CB00A482B3 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +72,11 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				BF607F1B2BF5BFAF00770CE7 /* Login */,
+				BF607F1A2BF5BF9700770CE7 /* Networks */,
+				BF73034F2BF4AD1F00A482B3 /* Extension */,
+				BF73034B2BF4AB5E00A482B3 /* Common */,
 				BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */,
-				BF73033F2BF4A2CB00A482B3 /* ContentView.swift */,
 				BF7303412BF4A2CB00A482B3 /* Assets.xcassets */,
 				BF7303432BF4A2CB00A482B3 /* Preview Content */,
 			);
@@ -65,6 +89,31 @@
 				BF7303442BF4A2CB00A482B3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF73034B2BF4AB5E00A482B3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BF73034C2BF4AB6300A482B3 /* Util */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BF73034C2BF4AB6300A482B3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BF73034D2BF4AB6D00A482B3 /* Constants.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BF73034F2BF4AD1F00A482B3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF7303502BF4AD2900A482B3 /* Color+.swift */,
+				BF7303522BF4B3C500A482B3 /* Text+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7303402BF4A2CB00A482B3 /* ContentView.swift in Sources */,
+				BF7303402BF4A2CB00A482B3 /* LoginMainView.swift in Sources */,
+				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
+				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
+				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
