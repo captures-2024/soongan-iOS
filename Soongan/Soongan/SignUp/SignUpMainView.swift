@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginMainView: View {
+struct SignUpMainView: View {
     
     private var attributedString: AttributedString {
         let string = "계속하시면 이용약관 및 개인보호 정책에 동의하시게 됩니다."
@@ -91,5 +91,5 @@ struct snsButtonView: View {
 
 
 #Preview {
-    LoginMainView()
+    SignUpMainView()
 }
