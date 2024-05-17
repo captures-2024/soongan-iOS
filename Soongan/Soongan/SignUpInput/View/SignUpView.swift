@@ -20,7 +20,7 @@ struct SignUpView: View {
 
     var body: some View {
         ZStack {
-            Color(hex: 0x252525)
+            Color.primaryA
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
@@ -97,7 +97,7 @@ struct SignUpView: View {
             }
         })
         .font(.system(size: 24))
-        .foregroundStyle(Color(hex: 0xF5F5F5))
+        .foregroundStyle(Color.primaryB)
     }
 
 
@@ -112,10 +112,10 @@ struct SignUpView: View {
                     .foregroundStyle(Color(hex: 0xCACACA))
                 Text("다음")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color(hex: 0x276EF1))
+                    .background(Color.positive)
                     .cornerRadius(8)
             }
         })
@@ -131,10 +131,10 @@ struct SignUpView: View {
                     .foregroundStyle(Color(hex: 0xCACACA))
                 Text("완료")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color(hex: 0x276EF1))
+                    .background(Color.positive)
                     .cornerRadius(8)
             }
         })
@@ -148,7 +148,7 @@ struct SignUpView: View {
                     .foregroundStyle(Color(hex: 0xCACACA))
                 Text(viewModel.nickname)
                     .font(.system(size: 18))
-                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .foregroundStyle(Color.primaryB)
             }
             Spacer()
         }
@@ -165,13 +165,13 @@ struct SignUpTextFieldView: View {
             HStack {
                 Text(fieldName)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .foregroundStyle(Color.primaryB)
                 Spacer()
             }
             .padding(.bottom, 4)
             .padding(.leading, 12)
             TextField(placeholder, text: $text)
-                .tint(Color(hex: 0x252525))
+                .tint(Color.primaryA)
                 .font(.system(size: 18, weight: .medium))
                 .padding(.horizontal, 12)
                 .frame(height: 48)
