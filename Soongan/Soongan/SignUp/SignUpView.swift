@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+enum FocusField: Hashable {
+    case nickname
+    case year
+}
+
 struct SignUpView: View {
-    @State var nickname = ""
-    @State var year = ""
-    @State var isNicknameValid = false
+    @State private var nickname = ""
+    @State private var year = ""
+    @State private var isNicknameValid = false
+
+    @FocusState private var focusedField: FocusField?
 
     var body: some View {
         ZStack {
@@ -22,15 +29,16 @@ struct SignUpView: View {
                     backButton
                     Spacer()
                 }
-                .padding(.leading, 12)
+                .padding(.leading, -24)
                 .padding(.top, 20)
 
                 Spacer()
 
                 if !isNicknameValid {
-                    nickNameTextField
+                    nicknameTextField
                 } else {
                     nicknameLabel
+                        .padding(.leading, 16)
                     Spacer()
                     yearTextField
                 }
@@ -40,6 +48,43 @@ struct SignUpView: View {
                     .padding(.bottom, 20)
             }
             .padding(.horizontal, 40)
+        }
+        .onAppear {
+            focusedField = .nickname
+        }
+    }
+
+    private var nicknameTextField: some View {
+        VStack(spacing: 12) {
+            SignUpTextFieldView(fieldName: "닉네임",
+                                placeholder: "사용자명을 입력해주세요.",
+                                text: $nickname)
+                .focused($focusedField, equals: .nickname)
+            HStack {
+                Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
+                Spacer()
+                Text("\(nickname.count)/10")
+            }
+            .font(.system(size: 12))
+            .foregroundStyle(Color(hex: 0xCACACA))
+            .padding(.horizontal, 12)
+        }
+    }
+
+    private var yearTextField: some View {
+        VStack(spacing: 12) {
+            SignUpTextFieldView(fieldName: "출생연도",
+                                placeholder: "YYYY",
+                                text: $year)
+            .keyboardType(.numberPad)
+            .focused($focusedField, equals: .year)
+            HStack {
+                Text("출생연도 숫자 4자리를 기입해주세요.")
+                Spacer()
+            }
+            .font(.system(size: 12))
+            .foregroundStyle(Color(hex: 0xCACACA))
+            .padding(.horizontal, 12)
         }
     }
 
@@ -54,44 +99,17 @@ struct SignUpView: View {
         .foregroundStyle(Color(hex: 0xF5F5F5))
     }
 
-    private var nickNameTextField: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text("닉네임")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(Color(hex: 0xF5F5F5))
-                Spacer()
-            }
-            .padding(.bottom, 4)
-            .padding(.leading, 12)
-            TextField("사용자명을 입력해주세요.", text: $nickname)
-                .tint(Color(hex: 0x252525))
-                .font(.system(size: 18, weight: .medium))
-                .padding(.horizontal, 12)
-                .frame(height: 48)
-                .background(.white)
-                .cornerRadius(8)
-                .padding(.bottom, 12)
-            HStack {
-                Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
-                Spacer()
-                Text("\(nickname.count)/10")
-            }
-            .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
-            .padding(.horizontal, 12)
-        }
-    }
 
     private var nextButton: some View {
         Button(action: {
             isNicknameValid = true
+            focusedField = .year
         }, label: {
             VStack(spacing: 12) {
-                Text("다음이 마지막 단계입니다!")
+                Text(isNicknameValid ? "마지막 단계입니다!" : "다음이 마지막 단계입니다!")
                     .font(.system(size: 12))
                     .foregroundStyle(Color(hex: 0xCACACA))
-                Text("다음")
+                Text(isNicknameValid ? "완료" : "다음")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundStyle(Color(hex: 0xF5F5F5))
                     .frame(maxWidth: .infinity)
@@ -115,35 +133,33 @@ struct SignUpView: View {
             Spacer()
         }
     }
+}
 
-    private var yearTextField: some View {
+struct SignUpTextFieldView: View {
+    var fieldName: String
+    var placeholder: String
+    @Binding var text: String
+
+    var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text("출생연도")
+                Text(fieldName)
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(Color(hex: 0xF5F5F5))
                 Spacer()
             }
             .padding(.bottom, 4)
             .padding(.leading, 12)
-            TextField("사용자명을 입력해주세요.", text: $year)
+            TextField(placeholder, text: $text)
                 .tint(Color(hex: 0x252525))
                 .font(.system(size: 18, weight: .medium))
                 .padding(.horizontal, 12)
                 .frame(height: 48)
                 .background(.white)
                 .cornerRadius(8)
-                .padding(.bottom, 12)
-                .keyboardType(.numberPad)
-            HStack {
-                Text("출생연도 숫자 4자리를 기입해주세요.")
-                Spacer()
-            }
-            .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
-            .padding(.horizontal, 12)
         }
     }
+
 }
 
 #Preview {
