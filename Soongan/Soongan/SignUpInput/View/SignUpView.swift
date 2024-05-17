@@ -13,11 +13,10 @@ enum FocusField: Hashable {
 }
 
 struct SignUpView: View {
-    @State private var nickname = ""
-    @State private var year = ""
+    @FocusState private var focusedField: FocusField?
     @State private var isNicknameValid = false
 
-    @FocusState private var focusedField: FocusField?
+    @StateObject var viewModel = SignUpViewModel()
 
     var body: some View {
         ZStack {
@@ -36,16 +35,18 @@ struct SignUpView: View {
 
                 if !isNicknameValid {
                     nicknameTextField
+                    Spacer()
+                    nextButton
+                        .padding(.bottom, 20)
                 } else {
                     nicknameLabel
                         .padding(.leading, 16)
                     Spacer()
                     yearTextField
+                    Spacer()
+                    completeButton
+                        .padding(.bottom, 20)
                 }
-
-                Spacer()
-                nextButton
-                    .padding(.bottom, 20)
             }
             .padding(.horizontal, 40)
         }
@@ -58,12 +59,12 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "닉네임",
                                 placeholder: "사용자명을 입력해주세요.",
-                                text: $nickname)
+                                text: $viewModel.nickname)
                 .focused($focusedField, equals: .nickname)
             HStack {
                 Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
                 Spacer()
-                Text("\(nickname.count)/10")
+                Text("\(viewModel.nickname.count)/10")
             }
             .font(.system(size: 12))
             .foregroundStyle(Color(hex: 0xCACACA))
@@ -75,7 +76,7 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "출생연도",
                                 placeholder: "YYYY",
-                                text: $year)
+                                text: $viewModel.year)
             .keyboardType(.numberPad)
             .focused($focusedField, equals: .year)
             HStack {
@@ -106,10 +107,29 @@ struct SignUpView: View {
             focusedField = .year
         }, label: {
             VStack(spacing: 12) {
-                Text(isNicknameValid ? "마지막 단계입니다!" : "다음이 마지막 단계입니다!")
+                Text("다음이 마지막 단계입니다!")
                     .font(.system(size: 12))
                     .foregroundStyle(Color(hex: 0xCACACA))
-                Text(isNicknameValid ? "완료" : "다음")
+                Text("다음")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 48)
+                    .background(Color(hex: 0x276EF1))
+                    .cornerRadius(8)
+            }
+        })
+    }
+
+    private var completeButton: some View {
+        Button(action: {
+            // TODO: next view
+        }, label: {
+            VStack(spacing: 12) {
+                Text("마지막 단계입니다!")
+                    .font(.system(size: 12))
+                    .foregroundStyle(Color(hex: 0xCACACA))
+                Text("완료")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundStyle(Color(hex: 0xF5F5F5))
                     .frame(maxWidth: .infinity)
@@ -126,7 +146,7 @@ struct SignUpView: View {
                 Text("닉네임")
                     .font(.system(size: 12))
                     .foregroundStyle(Color(hex: 0xCACACA))
-                Text(nickname)
+                Text(viewModel.nickname)
                     .font(.system(size: 18))
                     .foregroundStyle(Color(hex: 0xF5F5F5))
             }

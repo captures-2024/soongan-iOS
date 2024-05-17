@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class SignUpViewModel: ObservableObject {
+    @Published var nickname: String = ""
+    @Published var year: String = "" 
+}
