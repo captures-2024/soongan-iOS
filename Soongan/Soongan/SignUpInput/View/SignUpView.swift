@@ -59,7 +59,8 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "닉네임",
                                 placeholder: "사용자명을 입력해주세요.",
-                                text: $viewModel.nickname)
+                                text: $viewModel.nickname,
+                                isValid: viewModel.isNicknameValid)
                 .focused($focusedField, equals: .nickname)
             HStack {
                 Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
@@ -76,15 +77,17 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "출생연도",
                                 placeholder: "YYYY",
-                                text: $viewModel.year)
+                                text: $viewModel.year,
+                                isValid: viewModel.isYearValid)
             .keyboardType(.numberPad)
             .focused($focusedField, equals: .year)
             HStack {
-                Text("출생연도 숫자 4자리를 기입해주세요.")
+                Text(viewModel.yearMessage)
                 Spacer()
             }
             .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
+            .foregroundStyle(viewModel.year.isEmpty || viewModel.isYearValid ? Color(hex: 0xCACACA) : Color.negative)
+
             .padding(.horizontal, 12)
         }
     }
@@ -134,10 +137,11 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color.positive)
+                    .background(viewModel.isYearValid ? Color.positive : Color.gray300)
                     .cornerRadius(8)
             }
         })
+        .disabled(!viewModel.isYearValid)
     }
 
     private var nicknameLabel: some View {
@@ -159,6 +163,7 @@ struct SignUpTextFieldView: View {
     var fieldName: String
     var placeholder: String
     @Binding var text: String
+    var isValid: Bool
 
     var body: some View {
         VStack(spacing: 0) {
@@ -170,13 +175,24 @@ struct SignUpTextFieldView: View {
             }
             .padding(.bottom, 4)
             .padding(.leading, 12)
-            TextField(placeholder, text: $text)
-                .tint(Color.primaryA)
-                .font(.system(size: 18, weight: .medium))
-                .padding(.horizontal, 12)
-                .frame(height: 48)
-                .background(.white)
-                .cornerRadius(8)
+            ZStack(alignment: .trailing) {
+                TextField(placeholder, text: $text)
+                    .tint(Color.primaryA)
+                    .font(.system(size: 18, weight: .medium))
+                    .padding(.horizontal, 12)
+                    .frame(height: 48)
+                    .background(.white)
+                    .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.negative,
+                                    lineWidth: text.isEmpty ? 0 : isValid ? 0 : 2)
+                    )
+                Image(systemName: "heart")
+                    .padding(.trailing, 12)
+                    .foregroundStyle(text.isEmpty ? Color.gray100 :
+                                        isValid ? Color.positive : Color.negative)
+            }
         }
     }
 
