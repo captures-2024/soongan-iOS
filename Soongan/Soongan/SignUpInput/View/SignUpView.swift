@@ -63,11 +63,12 @@ struct SignUpView: View {
                 .focused($focusedField, equals: .nickname)
             HStack {
                 Text(viewModel.nicknameMessage)
+                    .foregroundStyle(viewModel.isNicknameValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
                 Spacer()
                 Text("\(viewModel.nickname.count)/10")
+                    .foregroundStyle(Color(hex: 0xCACACA))
             }
             .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
             .padding(.horizontal, 12)
         }
     }
@@ -106,6 +107,7 @@ struct SignUpView: View {
     private var nextButton: some View {
         Button(action: {
             focusedField = .year
+            viewModel.checkNickname()
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -187,23 +189,22 @@ struct SignUpTextFieldView: View {
                             .stroke(Color.negative, lineWidth: validation == .invalid ? 2 : 0)
                     )
 
-                switch validation {
-                case .empty:
-                    Image("imgCheckCircle")
-                        .padding(.trailing, 12)
-                case .invalid:
-                    Image("imgXmarkCircle")
-                        .foregroundStyle(Color.negative)
-                        .padding(.trailing, 12)
-                case .valid:
-                    Image("imgCheckCircleValid")
-                        .foregroundStyle(Color.positive)
-                        .padding(.trailing, 12)
+                Group {
+                    switch validation {
+                    case .normal:
+                        Image("imgCheckCircle")
+                    case .invalid:
+                        Image("imgXmarkCircle")
+                            .foregroundStyle(Color.negative)
+                    default:
+                        Image("imgCheckCircleValid")
+                            .foregroundStyle(Color.positive)
+                    }
                 }
+                .padding(.trailing, 12)
             }
         }
     }
-
 }
 
 #Preview {
