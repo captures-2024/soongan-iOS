@@ -19,7 +19,7 @@ class SignUpViewModel: ObservableObject {
     @Published var nicknameMessage = ""
     @Published var yearMessage = ""
 
-    @Published var isNextButtonEnabled = true
+    @Published var isNextButtonEnabled = false
     @Published var isNicknameValid = ValidationCheck.empty
     @Published var isYearValid = ValidationCheck.empty
 
@@ -48,6 +48,18 @@ class SignUpViewModel: ObservableObject {
     }
 
     init() {
+        setNicknameValidation()
+        setYearValidation()
+    }
+
+    func setNicknameValidation() {
+        isNicknameLengthValidPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isNextButtonEnabled, on: self)
+            .store(in: &cancellables)
+    }
+
+    func setYearValidation() {
         isYearValidPublisher
             .receive(on: DispatchQueue.main)
             .map { yearCheck -> String in

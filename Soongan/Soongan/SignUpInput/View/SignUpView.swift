@@ -106,7 +106,6 @@ struct SignUpView: View {
     private var nextButton: some View {
         Button(action: {
             focusedField = .year
-            viewModel.isNicknameValid = .valid
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -119,9 +118,9 @@ struct SignUpView: View {
                     .frame(height: 48)
                     .background(viewModel.isNextButtonEnabled ? Color.positive : Color.gray300)
                     .cornerRadius(8)
-                    .disabled(!viewModel.isNextButtonEnabled)
             }
         })
+        .disabled(!viewModel.isNextButtonEnabled)
     }
 
     private var completeButton: some View {
