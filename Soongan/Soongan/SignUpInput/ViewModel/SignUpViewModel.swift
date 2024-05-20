@@ -8,22 +8,41 @@
 import Foundation
 import Combine
 
+enum ValidationCheck {
+    case empty, invalid, valid
+}
+
 class SignUpViewModel: ObservableObject {
     @Published var nickname = ""
     @Published var year = ""
 
     @Published var nicknameMessage = ""
     @Published var yearMessage = ""
-    @Published var isNicknameValid = false
-    @Published var isYearValid = false
+
+    @Published var isNextButtonEnabled = true
+    @Published var isNicknameValid = ValidationCheck.empty
+    @Published var isYearValid = ValidationCheck.empty
 
     private var cancellables: Set<AnyCancellable> = []
 
-    var isYearValidPublisher: AnyPublisher<Bool, Never> {
+    var isYearValidPublisher: AnyPublisher<ValidationCheck, Never> {
         $year
-            .compactMap { Int($0) }
+            .map { year -> ValidationCheck in
+                if year.isEmpty {
+                    return .empty
+                } else if let year = Int(year), year >= 1950 && year <= 2009 {
+                    return .valid
+                } else {
+                    return .invalid
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+
+    var isNicknameLengthValidPublisher: AnyPublisher<Bool, Never> {
+        $nickname
             .map {
-                return $0 >= 1950 && $0 <= 2009
+                return $0.count >= 3 && $0.count <= 10
             }
             .eraseToAnyPublisher()
     }
@@ -31,11 +50,20 @@ class SignUpViewModel: ObservableObject {
     init() {
         isYearValidPublisher
             .receive(on: DispatchQueue.main)
-            .map { [weak self] valid in
-                self?.isYearValid = valid
-                return valid ? "출생연도 숫자 4자리를 기입해주세요." : "1950-2009 이내의 기간을 입력해주세요."
+            .map { yearCheck -> String in
+                switch yearCheck {
+                case .invalid:
+                    return "1950-2009 이내의 기간을 입력해주세요."
+                default:
+                    return "출생연도 숫자 4자리를 기입해주세요."
+                }
             }
             .assign(to: \.yearMessage, on: self)
+            .store(in: &cancellables)
+
+        isYearValidPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isYearValid, on: self)
             .store(in: &cancellables)
     }
 }

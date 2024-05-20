@@ -14,7 +14,6 @@ enum FocusField: Hashable {
 
 struct SignUpView: View {
     @FocusState private var focusedField: FocusField?
-    @State private var isNicknameValid = false
 
     @StateObject var viewModel = SignUpViewModel()
 
@@ -33,7 +32,7 @@ struct SignUpView: View {
 
                 Spacer()
 
-                if !isNicknameValid {
+                if viewModel.isNicknameValid != .valid  {
                     nicknameTextField
                     Spacer()
                     nextButton
@@ -60,10 +59,10 @@ struct SignUpView: View {
             SignUpTextFieldView(fieldName: "닉네임",
                                 placeholder: "사용자명을 입력해주세요.",
                                 text: $viewModel.nickname,
-                                isValid: viewModel.isNicknameValid)
+                                validation: viewModel.isNicknameValid)
                 .focused($focusedField, equals: .nickname)
             HStack {
-                Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
+                Text(viewModel.nicknameMessage)
                 Spacer()
                 Text("\(viewModel.nickname.count)/10")
             }
@@ -78,7 +77,7 @@ struct SignUpView: View {
             SignUpTextFieldView(fieldName: "출생연도",
                                 placeholder: "YYYY",
                                 text: $viewModel.year,
-                                isValid: viewModel.isYearValid)
+                                validation: viewModel.isYearValid)
             .keyboardType(.numberPad)
             .focused($focusedField, equals: .year)
             HStack {
@@ -86,7 +85,7 @@ struct SignUpView: View {
                 Spacer()
             }
             .font(.system(size: 12))
-            .foregroundStyle(viewModel.year.isEmpty || viewModel.isYearValid ? Color(hex: 0xCACACA) : Color.negative)
+            .foregroundStyle(viewModel.isYearValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
 
             .padding(.horizontal, 12)
         }
@@ -106,8 +105,8 @@ struct SignUpView: View {
 
     private var nextButton: some View {
         Button(action: {
-            isNicknameValid = true
             focusedField = .year
+            viewModel.isNicknameValid = .valid
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -118,8 +117,9 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color.positive)
+                    .background(viewModel.isNextButtonEnabled ? Color.positive : Color.gray300)
                     .cornerRadius(8)
+                    .disabled(!viewModel.isNextButtonEnabled)
             }
         })
     }
@@ -137,11 +137,11 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(viewModel.isYearValid ? Color.positive : Color.gray300)
+                    .background(viewModel.isYearValid == .valid ? Color.positive : Color.gray300)
                     .cornerRadius(8)
             }
         })
-        .disabled(!viewModel.isYearValid)
+        .disabled(viewModel.isYearValid != .valid)
     }
 
     private var nicknameLabel: some View {
@@ -163,7 +163,7 @@ struct SignUpTextFieldView: View {
     var fieldName: String
     var placeholder: String
     @Binding var text: String
-    var isValid: Bool
+    var validation: ValidationCheck
 
     var body: some View {
         VStack(spacing: 0) {
@@ -185,13 +185,22 @@ struct SignUpTextFieldView: View {
                     .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.negative,
-                                    lineWidth: text.isEmpty ? 0 : isValid ? 0 : 2)
+                            .stroke(Color.negative, lineWidth: validation == .invalid ? 2 : 0)
                     )
-                Image(systemName: "heart")
-                    .padding(.trailing, 12)
-                    .foregroundStyle(text.isEmpty ? Color.gray100 :
-                                        isValid ? Color.positive : Color.negative)
+
+                switch validation {
+                case .empty:
+                    Image("imgCheckCircle")
+                        .padding(.trailing, 12)
+                case .invalid:
+                    Image("imgXmarkCircle")
+                        .foregroundStyle(Color.negative)
+                        .padding(.trailing, 12)
+                case .valid:
+                    Image("imgCheckCircleValid")
+                        .foregroundStyle(Color.positive)
+                        .padding(.trailing, 12)
+                }
             }
         }
     }
