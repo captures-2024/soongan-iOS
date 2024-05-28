@@ -69,13 +69,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		BF607F1A2BF5BF9700770CE7 /* Networks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networks;
-			sourceTree = "<group>";
-		};
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +99,6 @@
 			children = (
 				BF607F1B2BF5BFAF00770CE7 /* SignUp */,
 				AB003E7B2BF6EEF700A163E8 /* SignUpInput */,
-				BF607F1A2BF5BF9700770CE7 /* Networks */,
 				BF73034F2BF4AD1F00A482B3 /* Extension */,
 				BF73034B2BF4AB5E00A482B3 /* Common */,
 				BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */,
