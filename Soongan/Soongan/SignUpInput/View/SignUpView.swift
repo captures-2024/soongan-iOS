@@ -14,7 +14,6 @@ enum FocusField: Hashable {
 
 struct SignUpView: View {
     @FocusState private var focusedField: FocusField?
-    @State private var isNicknameValid = false
 
     @StateObject var viewModel = SignUpViewModel()
 
@@ -33,7 +32,7 @@ struct SignUpView: View {
 
                 Spacer()
 
-                if !isNicknameValid {
+                if viewModel.isNicknameValid != .valid  {
                     nicknameTextField
                     Spacer()
                     nextButton
@@ -59,15 +58,17 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "닉네임",
                                 placeholder: "사용자명을 입력해주세요.",
-                                text: $viewModel.nickname)
+                                text: $viewModel.nickname,
+                                validation: viewModel.isNicknameValid)
                 .focused($focusedField, equals: .nickname)
             HStack {
-                Text("3-10자리 숫자, 영문, 한글로 기입해주세요")
+                Text(viewModel.nicknameMessage)
+                    .foregroundStyle(viewModel.isNicknameValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
                 Spacer()
                 Text("\(viewModel.nickname.count)/10")
+                    .foregroundStyle(Color(hex: 0xCACACA))
             }
             .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
             .padding(.horizontal, 12)
         }
     }
@@ -76,15 +77,17 @@ struct SignUpView: View {
         VStack(spacing: 12) {
             SignUpTextFieldView(fieldName: "출생연도",
                                 placeholder: "YYYY",
-                                text: $viewModel.year)
+                                text: $viewModel.year,
+                                validation: viewModel.isYearValid)
             .keyboardType(.numberPad)
             .focused($focusedField, equals: .year)
             HStack {
-                Text("출생연도 숫자 4자리를 기입해주세요.")
+                Text(viewModel.yearMessage)
                 Spacer()
             }
             .font(.system(size: 12))
-            .foregroundStyle(Color(hex: 0xCACACA))
+            .foregroundStyle(viewModel.isYearValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
+
             .padding(.horizontal, 12)
         }
     }
@@ -103,8 +106,8 @@ struct SignUpView: View {
 
     private var nextButton: some View {
         Button(action: {
-            isNicknameValid = true
             focusedField = .year
+            viewModel.checkNickname()
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -115,10 +118,11 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color.positive)
+                    .background(viewModel.isNextButtonEnabled ? Color.positive : Color.gray300)
                     .cornerRadius(8)
             }
         })
+        .disabled(!viewModel.isNextButtonEnabled)
     }
 
     private var completeButton: some View {
@@ -134,10 +138,11 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(Color.positive)
+                    .background(viewModel.isYearValid == .valid ? Color.positive : Color.gray300)
                     .cornerRadius(8)
             }
         })
+        .disabled(viewModel.isYearValid != .valid)
     }
 
     private var nicknameLabel: some View {
@@ -159,6 +164,7 @@ struct SignUpTextFieldView: View {
     var fieldName: String
     var placeholder: String
     @Binding var text: String
+    var validation: ValidationCheck
 
     var body: some View {
         VStack(spacing: 0) {
@@ -170,16 +176,35 @@ struct SignUpTextFieldView: View {
             }
             .padding(.bottom, 4)
             .padding(.leading, 12)
-            TextField(placeholder, text: $text)
-                .tint(Color.primaryA)
-                .font(.system(size: 18, weight: .medium))
-                .padding(.horizontal, 12)
-                .frame(height: 48)
-                .background(.white)
-                .cornerRadius(8)
+            ZStack(alignment: .trailing) {
+                TextField(placeholder, text: $text)
+                    .tint(Color.primaryA)
+                    .font(.system(size: 18, weight: .medium))
+                    .padding(.horizontal, 12)
+                    .frame(height: 48)
+                    .background(.white)
+                    .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.negative, lineWidth: validation == .invalid ? 2 : 0)
+                    )
+
+                Group {
+                    switch validation {
+                    case .normal:
+                        Image("imgCheckCircle")
+                    case .invalid:
+                        Image("imgXmarkCircle")
+                            .foregroundStyle(Color.negative)
+                    default:
+                        Image("imgCheckCircleValid")
+                            .foregroundStyle(Color.positive)
+                    }
+                }
+                .padding(.trailing, 12)
+            }
         }
     }
-
 }
 
 #Preview {

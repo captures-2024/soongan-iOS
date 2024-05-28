@@ -11,7 +11,8 @@ import SwiftUI
 struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
-            SignUpMainView()
+//            SignUpMainView()
+            SignUpView()
         }
     }
 }
