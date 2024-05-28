@@ -33,27 +33,53 @@ struct SignUpMainView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("순간")
-                .font(.system(size: 96, weight: .medium))
-                .padding(.top, 174)
-                .padding(.bottom, 76)
-            VStack(spacing: 16) {
-                snsButtonView(image: "icApple", title: "Apple로 로그인")
-                snsButtonView(image: "icGoogle", title: "Google로 로그인")
-                snsButtonView(image: "icKakao", title: "Kakao로 로그인")
-            }
-            .padding(.bottom, 16)
+        ZStack {
             
-            Text("\(attributedString)")
-                .padding(.bottom, 24)
-            Button(action: {}, label: {
-                Text("둘러보기")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(Color(hex: 0x252525))
-            })
+            Image("background")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.all)
+            
+            BlackView()
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            
+            VStack(spacing: 0) {
+                Text("순간")
+                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .font(.system(size: 96, weight: .medium))
+                    .padding(.top, 174)
+                    .padding(.bottom, 76)
+                VStack(spacing: 16) {
+                    snsButtonView(image: "icApple", title: "Apple로 로그인")
+                    snsButtonView(image: "icGoogle", title: "Google로 로그인")
+                    snsButtonView(image: "icKakao", title: "Kakao로 로그인")
+                }
+                .padding(.bottom, 16)
+                
+                Text("\(attributedString)")
+                    .foregroundStyle(Color(hex: 0xF5F5F5))
+                    .padding(.bottom, 24)
+                Button(action: {}, label: {
+                    Text("둘러보기")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(Color(hex: 0xF5F5F5))
+                })
+            }
+            Spacer()
+            
+            
         }
-        Spacer()
+        
+    }
+}
+
+struct BlackView: View {
+    var body: some View {
+        Color.black
+            
+        
     }
 }
 
