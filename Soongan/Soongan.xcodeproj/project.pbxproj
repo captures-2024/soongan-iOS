@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB804DD92C1580C0004C4011 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AB804DD82C1580C0004C4011 /* Alamofire */; };
 		BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */; };
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
 		BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */; };
@@ -22,9 +23,8 @@
 		BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC02C061ABA00A9A10E /* BaseResponse.swift */; };
 		BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC12C061ABA00A9A10E /* APITask.swift */; };
 		BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC22C061ABA00A9A10E /* EndPoint.swift */; };
-		BFB73BCA2C061ADE00A9A10E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BFB73BC92C061ADE00A9A10E /* Alamofire */; };
-		BFB73BCC2C061ADE00A9A10E /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */; };
 		BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BCD2C061C0000A9A10E /* Data+.swift */; };
+		BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BD82C06F43F00A9A10E /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +45,7 @@
 		BFB73BC12C061ABA00A9A10E /* APITask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APITask.swift; sourceTree = "<group>"; };
 		BFB73BC22C061ABA00A9A10E /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BFB73BCD2C061C0000A9A10E /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		BFB73BD82C06F43F00A9A10E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB73BCA2C061ADE00A9A10E /* Alamofire in Frameworks */,
-				BFB73BCC2C061ADE00A9A10E /* AlamofireDynamic in Frameworks */,
+				AB804DD92C1580C0004C4011 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +88,7 @@
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */,
-				BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */,
+				BFB73BD62C06F3BF00A9A10E /* View */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -113,6 +112,7 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				BFB73BD72C06F43100A9A10E /* App */,
 				BFB73BBC2C061A5E00A9A10E /* Network */,
 				BF607F1B2BF5BFAF00770CE7 /* SignUp */,
 				AB003E7B2BF6EEF700A163E8 /* SignUpInput */,
@@ -179,6 +179,23 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		BFB73BD62C06F3BF00A9A10E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */,
+				BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFB73BD72C06F43100A9A10E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BFB73BD82C06F43F00A9A10E /* AppState.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,8 +213,7 @@
 			);
 			name = Soongan;
 			packageProductDependencies = (
-				BFB73BC92C061ADE00A9A10E /* Alamofire */,
-				BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */,
+				AB804DD82C1580C0004C4011 /* Alamofire */,
 			);
 			productName = Soongan;
 			productReference = BF73033A2BF4A2CB00A482B3 /* Soongan.app */;
@@ -228,7 +244,7 @@
 			);
 			mainGroup = BF7303312BF4A2CB00A482B3;
 			packageReferences = (
-				BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BF73033B2BF4A2CB00A482B3 /* Products */;
 			projectDirPath = "";
@@ -262,6 +278,7 @@
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
+				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
@@ -411,7 +428,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +458,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,9 +496,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.9.1;
@@ -490,15 +507,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFB73BC92C061ADE00A9A10E /* Alamofire */ = {
+		AB804DD82C1580C0004C4011 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
