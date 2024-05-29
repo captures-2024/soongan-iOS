@@ -23,13 +23,14 @@ struct SignUpFinishView: View {
                 Text("환영합니다")
                     .foregroundStyle(Color(hex: 0xF5F5F5))
                 Spacer()
-                Text("김첨지님!")
+                Text(AppState.shared.nickName + "님!")
                     .foregroundStyle(Color(hex: 0xF5F5F5))
             }
             .font(.system(size: 36, weight: .semibold))
             .frame(height: 132)
             Spacer()
         }
+        .toolbar(.hidden)
        
     }
 }

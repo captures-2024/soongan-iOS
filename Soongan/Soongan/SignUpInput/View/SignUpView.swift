@@ -14,6 +14,8 @@ enum FocusField: Hashable {
 
 struct SignUpView: View {
     @FocusState private var focusedField: FocusField?
+    
+    @Environment(\.dismiss) var dismiss
 
     @StateObject var viewModel = SignUpViewModel()
 
@@ -52,6 +54,7 @@ struct SignUpView: View {
         .onAppear {
             focusedField = .nickname
         }
+        .toolbar(.hidden)
     }
 
     private var nicknameTextField: some View {
@@ -93,7 +96,9 @@ struct SignUpView: View {
     }
 
     private var backButton: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            dismiss()
+        }, label: {
             HStack(spacing: 16) {
                 Image(systemName: "chevron.left")
                 Text("회원가입")
@@ -108,6 +113,9 @@ struct SignUpView: View {
         Button(action: {
             focusedField = .year
             viewModel.checkNickname()
+            // 닉네임 정보 저장
+            AppState.shared.nickName = viewModel.nickname
+      
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -128,6 +136,7 @@ struct SignUpView: View {
     private var completeButton: some View {
         Button(action: {
             // TODO: next view
+            AppState.shared.navigationPath.append(SignUpViewType.final)
         }, label: {
             VStack(spacing: 12) {
                 Text("마지막 단계입니다!")
@@ -143,6 +152,12 @@ struct SignUpView: View {
             }
         })
         .disabled(viewModel.isYearValid != .valid)
+        .navigationDestination(for: SignUpViewType.self) { viewType in
+            switch viewType {
+            case .final:
+                SignUpFinishView()
+            }
+        }
     }
 
     private var nicknameLabel: some View {
@@ -158,6 +173,10 @@ struct SignUpView: View {
             Spacer()
         }
     }
+}
+
+enum SignUpViewType {
+    case final
 }
 
 struct SignUpTextFieldView: View {
