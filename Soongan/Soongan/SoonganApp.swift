@@ -12,7 +12,8 @@ struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
 //            SignUpMainView()
-            SignUpMainView()
+//            SignUpMainView()
+            ContestView()
         }
     }
 }
