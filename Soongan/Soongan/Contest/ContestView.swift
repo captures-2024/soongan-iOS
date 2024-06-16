@@ -13,7 +13,7 @@ struct ContestView: View {
         TabView(selection: .constant(2)) {
             Text("참여하기")
                 .tag(1)
-            ContestOutlineView()
+//            ContestOutlineView()
                 .tag(2)
             Text("갤러리로")
                 .tag(3)
