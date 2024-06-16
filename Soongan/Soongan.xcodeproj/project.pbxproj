@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
 		AB804DD92C1580C0004C4011 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AB804DD82C1580C0004C4011 /* Alamofire */; };
@@ -29,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42817BF08B8B8C4F8DA4AE26 /* Pods-Soongan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.debug.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.debug.xcconfig"; sourceTree = "<group>"; };
+		77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soongan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB804DDB2C158193004C4011 /* ContestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestView.swift; sourceTree = "<group>"; };
@@ -55,13 +59,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB804DD92C1580C0004C4011 /* Alamofire in Frameworks */,
+				78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420F90749C47F550A4496F06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB003E7B2BF6EEF700A163E8 /* SignUpInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,15 @@
 			path = Contest;
 			sourceTree = "<group>";
 		};
+		BBDDFD715AFF477B2FB552AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42817BF08B8B8C4F8DA4AE26 /* Pods-Soongan.debug.xcconfig */,
+				815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +129,8 @@
 			children = (
 				BF73033C2BF4A2CB00A482B3 /* Soongan */,
 				BF73033B2BF4A2CB00A482B3 /* Products */,
+				BBDDFD715AFF477B2FB552AD /* Pods */,
+				420F90749C47F550A4496F06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,18 +237,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF7303482BF4A2CB00A482B3 /* Build configuration list for PBXNativeTarget "Soongan" */;
 			buildPhases = (
+				E778DFD0ECD16B7224D6556D /* [CP] Check Pods Manifest.lock */,
 				BF7303362BF4A2CB00A482B3 /* Sources */,
 				BF7303372BF4A2CB00A482B3 /* Frameworks */,
 				BF7303382BF4A2CB00A482B3 /* Resources */,
+				E57594495B0E1068F92ADAA6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Soongan;
-			packageProductDependencies = (
-				AB804DD82C1580C0004C4011 /* Alamofire */,
-			);
 			productName = Soongan;
 			productReference = BF73033A2BF4A2CB00A482B3 /* Soongan.app */;
 			productType = "com.apple.product-type.application";
@@ -254,9 +276,6 @@
 				Base,
 			);
 			mainGroup = BF7303312BF4A2CB00A482B3;
-			packageReferences = (
-				AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */,
-			);
 			productRefGroup = BF73033B2BF4A2CB00A482B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,6 +296,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E57594495B0E1068F92ADAA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E778DFD0ECD16B7224D6556D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Soongan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF7303362BF4A2CB00A482B3 /* Sources */ = {
@@ -342,7 +403,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -405,7 +466,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -426,6 +487,7 @@
 		};
 		BF7303492BF4A2CB00A482B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42817BF08B8B8C4F8DA4AE26 /* Pods-Soongan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +518,7 @@
 		};
 		BF73034A2BF4A2CB00A482B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,25 +569,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AB804DD82C1580C0004C4011 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AB804DD72C1580C0004C4011 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF7303322BF4A2CB00A482B3 /* Project object */;
 }
