@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
-
+import GoogleSignIn
+import GoogleSignInSwift
 @main
 struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
-//            SignUpMainView()
-            SignUpMainView()
+            SignUpMainView(userData: UserData(name: "", email: ""))
+                .onOpenURL { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
+ //           GalleryView()
         }
     }
 }

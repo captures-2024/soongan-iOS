@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FD4F79D6A018B49ACE10BCD /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F891586A1EC9A5CD34125671 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		BF2662502C185BEA00273BAF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BF26624F2C185BEA00273BAF /* GoogleSignIn */; };
+		BF2662522C185BEA00273BAF /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF2662512C185BEA00273BAF /* GoogleSignInSwift */; };
+		BF2662552C1964EE00273BAF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2662542C1964EE00273BAF /* UserData.swift */; };
+		BF2662582C196D4200273BAF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2662572C196D4200273BAF /* AuthManager.swift */; };
+		BF26625D2C19722600273BAF /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26625C2C19722600273BAF /* GalleryView.swift */; };
+		BF2662602C1972BA00273BAF /* CapturesNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26625F2C1972BA00273BAF /* CapturesNavigationBar.swift */; };
 		BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */; };
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
 		BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */; };
@@ -17,13 +24,12 @@
 		BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73034D2BF4AB6D00A482B3 /* Constants.swift */; };
 		BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303502BF4AD2900A482B3 /* Color+.swift */; };
 		BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303522BF4B3C500A482B3 /* Text+.swift */; };
+		BFA54C8C2C2021E700CB7D51 /* SignUpMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA54C8B2C2021E700CB7D51 /* SignUpMainViewModel.swift */; };
 		BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BBE2C061ABA00A9A10E /* Interceptor.swift */; };
 		BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BBF2C061ABA00A9A10E /* NetworkManager.swift */; };
 		BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC02C061ABA00A9A10E /* BaseResponse.swift */; };
 		BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC12C061ABA00A9A10E /* APITask.swift */; };
 		BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC22C061ABA00A9A10E /* EndPoint.swift */; };
-		BFB73BCA2C061ADE00A9A10E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BFB73BC92C061ADE00A9A10E /* Alamofire */; };
-		BFB73BCC2C061ADE00A9A10E /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */; };
 		BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BCD2C061C0000A9A10E /* Data+.swift */; };
 		BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BD82C06F43F00A9A10E /* AppState.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +37,11 @@
 /* Begin PBXFileReference section */
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		BF2662532C185D7400273BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BF2662542C1964EE00273BAF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BF2662572C196D4200273BAF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		BF26625C2C19722600273BAF /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		BF26625F2C1972BA00273BAF /* CapturesNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesNavigationBar.swift; sourceTree = "<group>"; };
 		BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishView.swift; sourceTree = "<group>"; };
 		BF73033A2BF4A2CB00A482B3 /* Soongan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soongan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonganApp.swift; sourceTree = "<group>"; };
@@ -40,6 +51,7 @@
 		BF73034D2BF4AB6D00A482B3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF7303502BF4AD2900A482B3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		BF7303522BF4B3C500A482B3 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
+		BFA54C8B2C2021E700CB7D51 /* SignUpMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainViewModel.swift; sourceTree = "<group>"; };
 		BFB73BBE2C061ABA00A9A10E /* Interceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		BFB73BBF2C061ABA00A9A10E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BFB73BC02C061ABA00A9A10E /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
@@ -47,6 +59,9 @@
 		BFB73BC22C061ABA00A9A10E /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BFB73BCD2C061C0000A9A10E /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		BFB73BD82C06F43F00A9A10E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E88AD219A57742E76990F3D2 /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
+		F41A9F004C8CD7DDC23FB021 /* Pods-Soongan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.debug.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.debug.xcconfig"; sourceTree = "<group>"; };
+		F891586A1EC9A5CD34125671 /* Pods_Soongan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soongan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +69,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB73BCA2C061ADE00A9A10E /* Alamofire in Frameworks */,
-				BFB73BCC2C061ADE00A9A10E /* AlamofireDynamic in Frameworks */,
+				BF2662502C185BEA00273BAF /* GoogleSignIn in Frameworks */,
+				BF2662522C185BEA00273BAF /* GoogleSignInSwift in Frameworks */,
+				7FD4F79D6A018B49ACE10BCD /* Pods_Soongan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3733483BA38C8F5C1917B31F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F41A9F004C8CD7DDC23FB021 /* Pods-Soongan.debug.xcconfig */,
+				E88AD219A57742E76990F3D2 /* Pods-Soongan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AB003E7B2BF6EEF700A163E8 /* SignUpInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +112,38 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BA4668CADD99C2AFA58CB7BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F891586A1EC9A5CD34125671 /* Pods_Soongan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF2662562C196D3900273BAF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BF2662572C196D4200273BAF /* AuthManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BF2662592C1971FE00273BAF /* Contest */ = {
+			isa = PBXGroup;
+			children = (
+				BF26625C2C19722600273BAF /* GalleryView.swift */,
+			);
+			path = Contest;
+			sourceTree = "<group>";
+		};
+		BF26625E2C19729F00273BAF /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BF26625F2C1972BA00273BAF /* CapturesNavigationBar.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +157,8 @@
 			children = (
 				BF73033C2BF4A2CB00A482B3 /* Soongan */,
 				BF73033B2BF4A2CB00A482B3 /* Products */,
+				3733483BA38C8F5C1917B31F /* Pods */,
+				BA4668CADD99C2AFA58CB7BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +173,10 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				BF26625E2C19729F00273BAF /* Component */,
+				BF2662592C1971FE00273BAF /* Contest */,
+				BF2662562C196D3900273BAF /* Auth */,
+				BF2662532C185D7400273BAF /* Info.plist */,
 				BFB73BD72C06F43100A9A10E /* App */,
 				BFB73BBC2C061A5E00A9A10E /* Network */,
 				BF607F1B2BF5BFAF00770CE7 /* SignUp */,
@@ -186,6 +249,8 @@
 			children = (
 				BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */,
 				BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */,
+				BF2662542C1964EE00273BAF /* UserData.swift */,
+				BFA54C8B2C2021E700CB7D51 /* SignUpMainViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,9 +270,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF7303482BF4A2CB00A482B3 /* Build configuration list for PBXNativeTarget "Soongan" */;
 			buildPhases = (
+				F3AA55695E437CCA828CEAB7 /* [CP] Check Pods Manifest.lock */,
 				BF7303362BF4A2CB00A482B3 /* Sources */,
 				BF7303372BF4A2CB00A482B3 /* Frameworks */,
 				BF7303382BF4A2CB00A482B3 /* Resources */,
+				9251E607B5C3F85B0081C548 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,8 +282,8 @@
 			);
 			name = Soongan;
 			packageProductDependencies = (
-				BFB73BC92C061ADE00A9A10E /* Alamofire */,
-				BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */,
+				BF26624F2C185BEA00273BAF /* GoogleSignIn */,
+				BF2662512C185BEA00273BAF /* GoogleSignInSwift */,
 			);
 			productName = Soongan;
 			productReference = BF73033A2BF4A2CB00A482B3 /* Soongan.app */;
@@ -247,7 +314,7 @@
 			);
 			mainGroup = BF7303312BF4A2CB00A482B3;
 			packageReferences = (
-				BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BF26624E2C185BEA00273BAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = BF73033B2BF4A2CB00A482B3 /* Products */;
 			projectDirPath = "";
@@ -270,6 +337,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9251E607B5C3F85B0081C548 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Soongan/Pods-Soongan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3AA55695E437CCA828CEAB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Soongan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF7303362BF4A2CB00A482B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -277,15 +386,20 @@
 			files = (
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
+				BF2662552C1964EE00273BAF /* UserData.swift in Sources */,
+				BF2662602C1972BA00273BAF /* CapturesNavigationBar.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
+				BF26625D2C19722600273BAF /* GalleryView.swift in Sources */,
+				BF2662582C196D4200273BAF /* AuthManager.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */,
+				BFA54C8C2C2021E700CB7D51 /* SignUpMainViewModel.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
@@ -417,15 +531,18 @@
 		};
 		BF7303492BF4A2CB00A482B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41A9F004C8CD7DDC23FB021 /* Pods-Soongan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = BTX96P3YD4;
+				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soongan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,15 +564,18 @@
 		};
 		BF73034A2BF4A2CB00A482B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E88AD219A57742E76990F3D2 /* Pods-Soongan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = BTX96P3YD4;
+				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soongan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -499,26 +619,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		BF26624E2C185BEA00273BAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
+				minimumVersion = 7.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFB73BC92C061ADE00A9A10E /* Alamofire */ = {
+		BF26624F2C185BEA00273BAF /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = BF26624E2C185BEA00273BAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
-		BFB73BCB2C061ADE00A9A10E /* AlamofireDynamic */ = {
+		BF2662512C185BEA00273BAF /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFB73BC82C061ADE00A9A10E /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			package = BF26624E2C185BEA00273BAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
