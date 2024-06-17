@@ -12,6 +12,8 @@
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
 		AB804DDC2C158193004C4011 /* ContestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB804DDB2C158193004C4011 /* ContestView.swift */; };
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
+		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
+		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
 		BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */; };
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
 		BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */; };
@@ -20,7 +22,6 @@
 		BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73034D2BF4AB6D00A482B3 /* Constants.swift */; };
 		BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303502BF4AD2900A482B3 /* Color+.swift */; };
 		BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7303522BF4B3C500A482B3 /* Text+.swift */; };
-		BFA54C8C2C2021E700CB7D51 /* SignUpMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA54C8B2C2021E700CB7D51 /* SignUpMainViewModel.swift */; };
 		BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BBE2C061ABA00A9A10E /* Interceptor.swift */; };
 		BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BBF2C061ABA00A9A10E /* NetworkManager.swift */; };
 		BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC02C061ABA00A9A10E /* BaseResponse.swift */; };
@@ -38,6 +39,8 @@
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB804DDB2C158193004C4011 /* ContestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestView.swift; sourceTree = "<group>"; };
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
+		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishView.swift; sourceTree = "<group>"; };
 		BF73033A2BF4A2CB00A482B3 /* Soongan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soongan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonganApp.swift; sourceTree = "<group>"; };
@@ -55,9 +58,6 @@
 		BFB73BC22C061ABA00A9A10E /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BFB73BCD2C061C0000A9A10E /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		BFB73BD82C06F43F00A9A10E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		E88AD219A57742E76990F3D2 /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
-		F41A9F004C8CD7DDC23FB021 /* Pods-Soongan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.debug.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.debug.xcconfig"; sourceTree = "<group>"; };
-		F891586A1EC9A5CD34125671 /* Pods_Soongan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soongan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +123,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BF5233502C20333100BA5683 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BF5233512C20333100BA5683 /* AuthManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,10 +160,7 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
-				BF26625E2C19729F00273BAF /* Component */,
-				BF2662592C1971FE00273BAF /* Contest */,
-				BF2662562C196D3900273BAF /* Auth */,
-				BF2662532C185D7400273BAF /* Info.plist */,
+				BF5233502C20333100BA5683 /* Auth */,
 				BFB73BD72C06F43100A9A10E /* App */,
 				BFB73BBC2C061A5E00A9A10E /* Network */,
 				BF607F1B2BF5BFAF00770CE7 /* SignUp */,
@@ -227,9 +232,9 @@
 		BFB73BD62C06F3BF00A9A10E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF52334E2C20332000BA5683 /* UserData.swift */,
 				BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */,
 				BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */,
-				BF2662542C1964EE00273BAF /* UserData.swift */,
 				BFA54C8B2C2021E700CB7D51 /* SignUpMainViewModel.swift */,
 			);
 			path = View;
@@ -359,21 +364,19 @@
 			files = (
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
-				BF2662552C1964EE00273BAF /* UserData.swift in Sources */,
-				BF2662602C1972BA00273BAF /* CapturesNavigationBar.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
-				BF26625D2C19722600273BAF /* GalleryView.swift in Sources */,
-				BF2662582C196D4200273BAF /* AuthManager.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */,
 				AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */,
+				BF52334F2C20332000BA5683 /* UserData.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
+				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
 				AB804DDC2C158193004C4011 /* ContestView.swift in Sources */,
@@ -436,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -493,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
