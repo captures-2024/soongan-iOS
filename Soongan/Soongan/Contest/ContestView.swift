@@ -20,6 +20,7 @@ struct ContestView: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
         .ignoresSafeArea()
+        .toolbar(.hidden)
     }
 }
 

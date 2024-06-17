@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpFinishView: View {
+    @StateObject var appState = AppState.shared
+    
     var body: some View {
         ZStack {
             Image("background")
@@ -31,8 +33,24 @@ struct SignUpFinishView: View {
             Spacer()
         }
         .toolbar(.hidden)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                appState.navigationPath.append(SignUpFinishViewType.contestView)
+                       }
+        }
+        .navigationDestination(for: SignUpFinishViewType.self) { viewType in
+        
+            switch viewType {
+            case .contestView:
+                ContestView()
+            }
+        }
        
     }
+}
+
+enum SignUpFinishViewType {
+    case contestView
 }
 
 #Preview {
