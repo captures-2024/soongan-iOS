@@ -6,6 +6,7 @@ target 'Soongan' do
   use_frameworks!
 
   # Pods for Soongan
-  pod 'Alamofire'
-
+  pod 'Alamofire', '5.9.1'
+  pod 'GoogleSignIn'
+  pod 'GoogleSignInSwiftSupport'
 end
