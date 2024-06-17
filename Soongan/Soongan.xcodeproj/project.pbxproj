@@ -14,6 +14,9 @@
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
 		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
+		BF5233542C20380100BA5683 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233532C20380100BA5683 /* GalleryView.swift */; };
+		BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233552C20388300BA5683 /* PhotoDetailView.swift */; };
+		BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */; };
 		BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */; };
 		BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */; };
 		BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73033F2BF4A2CB00A482B3 /* SignUpMainView.swift */; };
@@ -41,6 +44,9 @@
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		BF5233532C20380100BA5683 /* GalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		BF5233552C20388300BA5683 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturesNavigationBar.swift; sourceTree = "<group>"; };
 		BF607F1E2BF5C5EF00770CE7 /* SignUpFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishView.swift; sourceTree = "<group>"; };
 		BF73033A2BF4A2CB00A482B3 /* Soongan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soongan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoonganApp.swift; sourceTree = "<group>"; };
@@ -108,8 +114,10 @@
 		AB804DDA2C15817D004C4011 /* Contest */ = {
 			isa = PBXGroup;
 			children = (
+				BF5233532C20380100BA5683 /* GalleryView.swift */,
 				AB804DDB2C158193004C4011 /* ContestView.swift */,
 				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
+				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
 			);
 			path = Contest;
 			sourceTree = "<group>";
@@ -130,6 +138,15 @@
 			);
 			path = Auth;
 			sourceTree = "<group>";
+		};
+		BF5233572C2038B300BA5683 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */,
+			);
+			name = Component;
+			path = Soongan/Component;
+			sourceTree = SOURCE_ROOT;
 		};
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
@@ -160,6 +177,7 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				BF5233572C2038B300BA5683 /* Component */,
 				BF5233502C20333100BA5683 /* Auth */,
 				BFB73BD72C06F43100A9A10E /* App */,
 				BFB73BBC2C061A5E00A9A10E /* Network */,
@@ -364,6 +382,8 @@
 			files = (
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
+				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
+				BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
@@ -381,6 +401,7 @@
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
 				AB804DDC2C158193004C4011 /* ContestView.swift in Sources */,
 				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
+				BF5233542C20380100BA5683 /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
