@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-
+import GoogleSignIn
+import GoogleSignInSwift
 @main
 struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
-//            SignUpMainView()
-//            SignUpMainView()
+
             ContestView()
         }
     }
