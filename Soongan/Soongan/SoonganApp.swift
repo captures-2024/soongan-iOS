@@ -12,7 +12,7 @@ import GoogleSignInSwift
 struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
-            GalleryView()
+            SignUpMainView(userData: UserData(name: "", email: ""))
         }
     }
 }

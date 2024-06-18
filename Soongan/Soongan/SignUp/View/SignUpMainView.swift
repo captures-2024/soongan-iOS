@@ -68,8 +68,6 @@ struct SignUpMainView: View {
                                 snsButtonView(image: "icApple", title: "Apple로 로그인")
                                 snsButtonView(image: "icGoogle", title: "Google로 로그인")
                                 snsButtonView(image: "icKakao", title: "Kakao로 로그인")
-                                
-                                
                             }
                             .padding(.bottom, 16)
                             .navigationDestination(for: MainViewType.self) { viewType in
@@ -94,18 +92,12 @@ struct SignUpMainView: View {
                             })
                         }
                         Spacer()
-                        
-                        
                     }
-                
-                
             }
             .onAppear( perform: {
                 // 로그인 상태 체크
                 checkState()
             })
-        
-      
     }
     // 로그인 상태 체크
     func checkState() {
@@ -120,16 +112,11 @@ struct SignUpMainView: View {
             }
         }
     }
-    
-  
-    
 }
 
 struct BlackView: View {
     var body: some View {
         Color.black
-            
-        
     }
 }
 

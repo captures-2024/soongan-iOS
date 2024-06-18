@@ -22,11 +22,8 @@ struct CapturesNavigationBar: View {
                     
                         .shadow(radius: 10)
                         .padding(.leading, 20)
-            
                 }
-                
             }
-
         }
     }
 }
