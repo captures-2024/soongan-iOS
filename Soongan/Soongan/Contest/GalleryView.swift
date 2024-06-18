@@ -52,8 +52,8 @@ struct GalleryView: View {
                                                 VStack {
                                                     ForEach(numbers, id: \.self) { item in
                                                         Button(action: {
-                                                            appState.navigationPath.append(GalleryViewType.photoDetail)
-                                                            print(appState.navigationPath.count)
+                                                            AppState.shared.navigationPath.append(GalleryViewType.photoDetail)
+                                                            
                                                         }, label: {
                                                             RoundedRectangle(cornerRadius: 10)
                                                                 .frame(width: 200, height: Bool.random() ? 200 : 300)
@@ -104,7 +104,6 @@ struct GalleryView: View {
                 }
             }
         }
-        .toolbar(.hidden)
     }
 }
 

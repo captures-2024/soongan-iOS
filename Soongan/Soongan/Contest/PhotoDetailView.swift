@@ -43,6 +43,7 @@ struct PhotoDetailView: View {
                                     Image("plusInfoButton")
                                         .frame(width: 30, height: 30)
                                 })
+                        
                             }
                             Spacer()
                       
@@ -64,9 +65,6 @@ struct PhotoDetailView: View {
                             }
                           
                         }
-               
-                   
-                        
                     }
                     .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
                     .padding(.bottom, 40)
@@ -86,9 +84,22 @@ struct PhotoDetailView: View {
                                             .font(.system(size: 12, weight: .medium))
                                         Spacer()
                                         HStack(spacing: 24) {
-                                            Image("icShare")
-                                            Image("icHeart")
-                                            Image("icComment")
+                                            Button {
+                                                
+                                            } label: {
+                                                Image("icShare")
+                                            }
+                                            Button {
+                                                
+                                            } label: {
+                                                Image("icHeart")
+                                            }
+                                            Button {
+                                                
+                                            } label: {
+                                                Image("icComment")
+                                            }
+           
                                         }
                                         .padding(.trailing, 20)
                             
@@ -100,10 +111,6 @@ struct PhotoDetailView: View {
                                 Spacer()
                             }
                             .frame(width: 289, height: 124)
-
-                            
-            
-            
                         
                         }
                         .padding(.trailing, 20)
@@ -113,12 +120,11 @@ struct PhotoDetailView: View {
                    
                     Spacer()
                 }
-        
             }
         }
-        .toolbar(.hidden)
     }
 }
+
 
 #Preview {
     PhotoDetailView()
