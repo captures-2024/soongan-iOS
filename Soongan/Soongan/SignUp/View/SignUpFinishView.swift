@@ -35,14 +35,14 @@ struct SignUpFinishView: View {
         .toolbar(.hidden)
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                appState.navigationPath.append(SignUpFinishViewType.contestView)
+                appState.navigationPath.append(SignUpFinishViewType.contestOutlineView)
                        }
         }
         .navigationDestination(for: SignUpFinishViewType.self) { viewType in
         
             switch viewType {
-            case .contestView:
-                ContestView()
+            case .contestOutlineView:
+                ContestOutlineView()
             }
         }
        
@@ -50,7 +50,7 @@ struct SignUpFinishView: View {
 }
 
 enum SignUpFinishViewType {
-    case contestView
+    case contestOutlineView
 }
 
 #Preview {

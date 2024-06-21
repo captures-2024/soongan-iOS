@@ -8,8 +8,8 @@
 import SwiftUI
 
 enum ContestMode: String, CaseIterable {
-    case weekly
-    case daily
+    case weekly = "일간"
+    case daily = "주간"
 }
 
 struct ContestOutlineView: View {
@@ -24,129 +24,100 @@ struct ContestOutlineView: View {
                 .resizable()
                 .ignoresSafeArea(.all)
 
-            VStack(spacing: 28) {
-                HStack {
-                    Image("soonganLogo")
-                    Spacer()
-                    ContestModeSegmentedControl(selection: $contestMode)
-                }
-                .padding(.top, 16)
-
-                Spacer()
-
-                HStack {
-                    Text("평화")
-                        .font(.system(size: 32))
-                    Spacer()
-                }
-                .padding(.bottom, 20)
-
-                HStack {
-                    Spacer()
-                        .frame(width: 80)
-                    Text("""
-                    “평화를 찾기 위해 인도나 그 어디에도 갈 필요가 없습니다. 당신은 당신의 방, 정원, 심지어 욕조에서도 바로 그 깊은 침묵의 장소를 발견할 수 있을 것입니다.”
-                    """)
-                    .font(.system(size: 16))
-                }
-                .padding(.bottom, 40)
-
-                HStack {
-                    Spacer()
-                    Text("05.14 - 05.21")
-                        .font(.system(size: 20))
-                }
-
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("리워드 :  리워드는 어떻게?")
-                        Text("선정방식 :  선정방식은 어떻게?")
-                    }
-                    .font(.system(size: 14))
-                    Spacer()
-                }
-                .padding(.bottom, 38)
-
-                HStack {
-                    VStack(alignment: .trailing, spacing: 4) {
-                        Image("leftArrow")
-                        Text("참여하기")
-                    }
-                    .padding(.leading, -12)
-
-                    Spacer()
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Image("rightArrow")
-                        Text("갤러리로")
-                    }
-                    .padding(.trailing, 4)
-                }
-                .font(.system(size: 12))
-
-                Spacer()
+            VStack {
+                titleView
+                    .padding(.bottom, 68)
+                exhibitButtonView
+                    .padding(.bottom, 52)
+                ContestModeSegmentedControl(selection: $contestMode)
+                    .padding(.bottom, 16)
+                dateDescriptionView
             }
-            .padding(.leading, 32)
-            .padding(.trailing, 16)
         }
     }
+
+    private var titleView: some View {
+        HStack {
+            ZStack(alignment: .leading) {
+                Circle()
+                    .frame(width: 40, height: 40)
+                    .foregroundStyle(Color.accent)
+                    .offset(x: -20, y: -20)
+                Text("평화")
+                    .font(.system(size: 42, weight: .bold))
+            }
+            Spacer()
+            Image("soonganLogo")
+                .shadow(color: .black.opacity(0.25),
+                        radius: 2,
+                        x: 0,
+                        y: 2)
+        }
+        .padding(.horizontal, 36)
+    }
+
+    private var exhibitButtonView: some View {
+        Button {
+            // TODO: - 출품 로직
+        } label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 257, height: 257)
+                    .foregroundStyle(Color.white)
+                    .shadow(color: .black.opacity(0.25),
+                            radius: 4,
+                            x: 0,
+                            y: 4)
+                VStack(spacing: 16) {
+                    Image(systemName: "plus")
+                    Text("출품하기")
+                        .font(.system(size: 14, weight: .regular))
+                        .foregroundStyle(Color.primaryA)
+                }
+            }
+        }
+    }
+
+    private var dateDescriptionView: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Text("시작 일정 | 2024.05.10")
+                Text("마감 일정 | 2024.05.10")
+            }
+            .font(.system(size: 14, weight: .bold))
+        }
+        .padding(.horizontal, 36)
+    }
 }
+
 
 struct ContestModeSegmentedControl: View {
     @Binding var selection: ContestMode
 
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(ContestMode.allCases, id: \.self) { mode in
-                ZStack {
+        HStack {
+            Spacer()
+            HStack(spacing: 0) {
+                ForEach(ContestMode.allCases, id: \.self) { mode in
                     ZStack {
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: 4)
                             .foregroundColor(selection == mode ? .black : Color.clear)
                         Text(mode.rawValue)
                             .foregroundColor(selection == mode ? .white : Color.init(hex: 0xC3C3C3))
-                            .font(.system(size: 14))
+                            .font(.system(size: 16, weight: .bold))
                     }
                     .onTapGesture {
                         selection = mode
                     }
                 }
             }
+            .frame(width: 158, height: 32)
+            .background(Color.white)
+            .cornerRadius(4)
+            .shadow(color: .black.opacity(0.25), radius: 4, x: 2, y: 2)
         }
-        .frame(width: 132, height: 32)
-        .background {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.inner(color: Color(hex: 0xFAF9F5, alpha: 0.3),
-                                               radius: 2,
-                                               x: 1,
-                                               y: 1)))
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.inner(color: Color(hex: 0xCCCBC9, alpha: 0.5),
-                                               radius: 2,
-                                               x: -1,
-                                               y: -1)))
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.drop(color: Color(hex: 0xCCCBC9, alpha: 0.2),
-                                              radius: 10,
-                                              x: -5,
-                                              y: 5)))
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.drop(color: Color(hex: 0xCCCBC9, alpha: 0.2),
-                                              radius: 10,
-                                              x: 5,
-                                              y: -5)))
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.drop(color: Color(hex: 0xFAF9F5, alpha: 0.9),
-                                              radius: 10,
-                                              x: -5,
-                                              y: -5)))
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.white.shadow(.drop(color: Color(hex: 0xCCCBC9, alpha: 0.9),
-                                              radius: 13,
-                                              x: 5,
-                                              y: 5)))
-            }
-        }
+        .padding(.horizontal, 32)
     }
 }
 
