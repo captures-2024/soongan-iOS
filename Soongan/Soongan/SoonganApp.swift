@@ -12,7 +12,8 @@ import GoogleSignInSwift
 struct SoonganApp: App {
     var body: some Scene {
         WindowGroup {
-            SignUpMainView(userData: UserData(name: "", email: ""))
+//            SignUpMainView(userData: UserData(name: "", email: ""))
+            ContestOutlineView()
         }
     }
 }

@@ -11,6 +11,7 @@
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
+		ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
 		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
@@ -41,6 +42,7 @@
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
+		ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */,
+				ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */,
 			);
 			name = Component;
 			path = Soongan/Component;
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
