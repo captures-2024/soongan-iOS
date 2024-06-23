@@ -24,7 +24,9 @@ struct ContestOutlineView: View {
                 .resizable()
                 .ignoresSafeArea(.all)
 
-            VStack {
+            VStack(spacing: 0) {
+                Spacer()
+
                 titleView
                     .padding(.bottom, 68)
                 exhibitButtonView
@@ -32,6 +34,27 @@ struct ContestOutlineView: View {
                 ContestModeSegmentedControl(selection: $contestMode)
                     .padding(.bottom, 16)
                 dateDescriptionView
+                    .padding(.bottom, 32)
+
+                HStack {
+                    VStack {
+                        CircleButton(imageName: "icInfo") {
+                            // TODO: - 대회 정보
+                        }
+                        Text("대회정보")
+                    }
+                    Spacer()
+                    VStack {
+                        CircleButton(imageName: "icRight") {
+                            // TODO: - 참가 작품
+                        }
+                        Text("참가작품")
+                    }
+                }
+                .padding(.horizontal, 28)
+                .font(.system(size: 12, weight: .regular))
+
+                Spacer()
             }
         }
     }
@@ -62,14 +85,17 @@ struct ContestOutlineView: View {
         } label: {
             ZStack {
                 Rectangle()
-                    .frame(width: 257, height: 257)
+                    .aspectRatio(1.0, contentMode: .fit)
+                    .frame(width: Constants.screenWidth - 136)
                     .foregroundStyle(Color.white)
                     .shadow(color: .black.opacity(0.25),
                             radius: 4,
                             x: 0,
                             y: 4)
                 VStack(spacing: 16) {
-                    Image(systemName: "plus")
+                    Image("icPlus")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     Text("출품하기")
                         .font(.system(size: 14, weight: .regular))
                         .foregroundStyle(Color.primaryA)
