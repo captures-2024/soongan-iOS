@@ -10,6 +10,8 @@
 		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
+		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
 		AB804DDC2C158193004C4011 /* ContestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB804DDB2C158193004C4011 /* ContestView.swift */; };
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
@@ -41,6 +43,8 @@
 		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
 		AB804DDB2C158193004C4011 /* ContestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestView.swift; sourceTree = "<group>"; };
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
@@ -111,6 +115,15 @@
 				AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB58AB232C246D070070420B /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				AB58AB242C246D1C0070420B /* MainTabView.swift */,
+				AB58AB262C246D280070420B /* MainTabType.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 		AB804DDA2C15817D004C4011 /* Contest */ = {
@@ -185,6 +198,7 @@
 				BFB73BBC2C061A5E00A9A10E /* Network */,
 				BF607F1B2BF5BFAF00770CE7 /* SignUp */,
 				AB003E7B2BF6EEF700A163E8 /* SignUpInput */,
+				AB58AB232C246D070070420B /* MainTab */,
 				AB804DDA2C15817D004C4011 /* Contest */,
 				BF73034F2BF4AD1F00A482B3 /* Extension */,
 				BF73034B2BF4AB5E00A482B3 /* Common */,
@@ -391,9 +405,11 @@
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
+				AB58AB272C246D280070420B /* MainTabType.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
+				AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */,
@@ -540,7 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
+				DEVELOPMENT_TEAM = BTX96P3YD4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -573,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = 8NJPCU8Y7S;
+				DEVELOPMENT_TEAM = BTX96P3YD4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
