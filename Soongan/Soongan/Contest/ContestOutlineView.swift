@@ -25,7 +25,7 @@ struct ContestOutlineView: View {
                 .ignoresSafeArea(.all)
 
             VStack(spacing: 0) {
-                Spacer()
+                Spacer(minLength: 20)
 
                 titleView
                     .padding(.bottom, 68)
