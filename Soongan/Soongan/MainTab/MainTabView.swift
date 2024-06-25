@@ -37,7 +37,7 @@ struct MainTabView: View {
 
             CustomTabBar(selectedTab: $selectedTab)
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 
