@@ -14,7 +14,7 @@ struct MainTabView: View {
         VStack(spacing: 0) {
             switch selectedTab {
             case .home:
-                ContestView()
+                ContestOutlineView()
             case .gallery:
                 // TODO: - gallery tab
                 VStack {
@@ -37,7 +37,7 @@ struct MainTabView: View {
 
             CustomTabBar(selectedTab: $selectedTab)
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 

@@ -10,10 +10,11 @@
 		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
 		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
-		AB804DDC2C158193004C4011 /* ContestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB804DDB2C158193004C4011 /* ContestView.swift */; };
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
+		ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
 		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
@@ -43,10 +44,11 @@
 		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
-		AB804DDB2C158193004C4011 /* ContestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestView.swift; sourceTree = "<group>"; };
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
+		ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -117,6 +119,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AB4D63EC2C2A99B800E35084 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				BF5233532C20380100BA5683 /* GalleryView.swift */,
+				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
+				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		AB4D63ED2C2A99BC00E35084 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AB58AB232C246D070070420B /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +149,8 @@
 		AB804DDA2C15817D004C4011 /* Contest */ = {
 			isa = PBXGroup;
 			children = (
-				BF5233532C20380100BA5683 /* GalleryView.swift */,
-				AB804DDB2C158193004C4011 /* ContestView.swift */,
-				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
-				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
+				AB4D63EC2C2A99B800E35084 /* VIew */,
+				AB4D63ED2C2A99BC00E35084 /* ViewModel */,
 			);
 			path = Contest;
 			sourceTree = "<group>";
@@ -158,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */,
+				ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */,
 			);
 			name = Component;
 			path = Soongan/Component;
@@ -397,7 +416,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
+				AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
@@ -419,7 +440,6 @@
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
-				AB804DDC2C158193004C4011 /* ContestView.swift in Sources */,
 				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
 				BF5233542C20380100BA5683 /* GalleryView.swift in Sources */,
 			);
