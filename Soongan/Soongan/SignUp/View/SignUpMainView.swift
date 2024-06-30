@@ -141,7 +141,7 @@ struct snsButtonView: View {
             case "Google로 로그인":
                 authManager.googleLogin()
             case "Kakao로 로그인":
-                AppState.shared.navigationPath.append(MainViewType.kakao)
+                authManager.kakaoLogin()
             default:
                 break
             }
