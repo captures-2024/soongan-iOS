@@ -102,18 +102,8 @@ struct ContestOutlineView: View {
                         }
                     }
                 }
-                .background(
-                    GeometryReader { geometry in
-                        Color.clear
-                            .onAppear {
-                                DispatchQueue.main.async {
-                                    contentWidth = geometry.size.width
-                                }
-                            }
-                    }
-                )
                 .frame(
-                    width: max(contentWidth, Constants.screenWidth),
+                    minWidth: Constants.screenWidth,
                     alignment: contentWidth < Constants.screenWidth * 0.9 ? .center : .leading
                 )
                 .padding(.horizontal, contentWidth > Constants.screenWidth * 0.9 ? 20 : 0)
