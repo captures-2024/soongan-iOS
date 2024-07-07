@@ -9,5 +9,14 @@ import Foundation
 
 class ContestOutlineViewModel: ObservableObject {
     
-    @Published var exhibitedCount = 0
+    @Published var exhibitedCount: Int = 2
+    @Published var images: [String] = []
+
+    init() {
+        images = [
+//            "https://picsum.photos/300/300",
+            "https://picsum.photos/200/400",
+            "https://picsum.photos/200/400"
+        ]
+    }
 }
