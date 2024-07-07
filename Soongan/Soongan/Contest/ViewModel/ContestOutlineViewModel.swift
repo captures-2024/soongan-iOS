@@ -9,5 +9,5 @@ import Foundation
 
 class ContestOutlineViewModel: ObservableObject {
     
-    @Published var exhibitedCount = 3
+    @Published var exhibitedCount = 0
 }

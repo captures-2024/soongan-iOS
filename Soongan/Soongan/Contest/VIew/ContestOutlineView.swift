@@ -27,7 +27,7 @@ struct ContestOutlineView: View {
                 .ignoresSafeArea(.all)
 
             VStack(spacing: 0) {
-                Spacer(minLength: 20)
+                Spacer(minLength: (Constants.screenHeight) * (52/852))
 
                 titleView
                     .padding(.bottom, 68)
@@ -59,7 +59,7 @@ struct ContestOutlineView: View {
                 .padding(.horizontal, 28)
                 .font(.system(size: 12, weight: .regular))
 
-                Spacer(minLength: 20)
+                Spacer(minLength: (Constants.screenHeight) * (40/852))
             }
         }
     }
@@ -88,12 +88,13 @@ struct ContestOutlineView: View {
     private var exhibitView: some View {
         if viewModel.exhibitedCount == 0 {
             Button {
-                // TODO: - 출품 로직
+                // TODO: - 출품하기
             } label: {
                 ZStack {
                     Rectangle()
                         .aspectRatio(1.0, contentMode: .fit)
-                        .frame(minHeight: 100, maxHeight: 257)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 68)
                         .foregroundStyle(Color.white)
                         .shadow(color: .black.opacity(0.25),
                                 radius: 4,
@@ -113,32 +114,28 @@ struct ContestOutlineView: View {
             VStack(alignment: .leading ,spacing: 12) {
                 HStack(alignment: .top, spacing: 16) {
                     Button {
-                        // TODO: - 출품 로직
+                        // TODO: - 출품하기
                     } label: {
-                        Button {
-                            // TODO: - 출품 로직
-                        } label: {
-                            Group {
-                                Image(viewModel.exhibitedCount < 3 ? "icPlus" : "icPlusWhite")
-                                    .resizable()
-                                    .frame(width: 28, height: 28)
+                        Group {
+                            Image(viewModel.exhibitedCount < 3 ? "icPlus" : "icPlusWhite")
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                        }
+                        .frame(width: 60)
+                        .frame(minHeight: 150, maxHeight: 257)
+                        .background {
+                            VStack {
+                                Spacer()
+                                Text("\(viewModel.exhibitedCount)/3")
+                                    .font(.system(size: 14, weight: .regular))
+                                    .foregroundStyle(viewModel.exhibitedCount < 3 ? Color.primaryA : Color.white)
+                                    .padding(.bottom, 24)
                             }
-                            .frame(width: 60)
-                            .frame(minHeight: 150, maxHeight: 257)
-                            .background {
-                                VStack {
-                                    Spacer()
-                                    Text("\(viewModel.exhibitedCount)/3")
-                                        .font(.system(size: 14, weight: .regular))
-                                        .foregroundStyle(viewModel.exhibitedCount < 3 ? Color.primaryA : Color.white)
-                                        .padding(.bottom, 24)
-                                }
-                            }
-                            .background {
-                                Rectangle()
-                                    .fill(viewModel.exhibitedCount < 3 ? Color.white : Color.init(hex: 0xBEBEBE))
-                                    .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 2)
-                            }
+                        }
+                        .background {
+                            Rectangle()
+                                .fill(viewModel.exhibitedCount < 3 ? Color.white : Color.init(hex: 0xBEBEBE))
+                                .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 2)
                         }
                     }
                     .disabled(viewModel.exhibitedCount == 3)
@@ -220,7 +217,10 @@ struct ContestModeSegmentedControl: View {
             .frame(width: 158, height: 32)
             .background(Color.white)
             .cornerRadius(4)
-            .shadow(color: .black.opacity(0.25), radius: 4, x: 2, y: 2)
+            .shadow(color: .black.opacity(0.25),
+                    radius: 4,
+                    x: 2,
+                    y: 2)
         }
         .padding(.horizontal, 32)
     }
