@@ -13,8 +13,6 @@ struct ExhibitedImageCell: View {
     let commentCount: Int
     let imageSizeChanged: (CGFloat) -> Void
 
-    @State private var imageSize: CGSize = .zero
-
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             AsyncImage(url: URL(string: imageURL)) { image in
@@ -40,9 +38,7 @@ struct ExhibitedImageCell: View {
                         GeometryReader { geometry in
                              Color.clear
                                  .onAppear {
-                                     let width = geometry.size.width
-                                     print("size: ", width)
-                                     imageSizeChanged(width)
+                                     imageSizeChanged(geometry.size.width)
                                  }
                          }
                     )
@@ -54,53 +50,19 @@ struct ExhibitedImageCell: View {
             HStack(spacing: 16) {
                 HStack(spacing: 4) {
                     Image("icHeartFill")
-                    Text("350")
+                    Text("\(heartCount)")
                 }
                 .font(.system(size: 12))
 
                 HStack(spacing: 4) {
                     Image("icCommentBlack")
-                    Text("350")
+                    Text("\(commentCount)")
                 }
                 .font(.system(size: 12))
             }
         }
     }
 }
-
-struct CustomAsyncImage: View {
-    let url: URL?
-
-    @State private var imageSize: CGSize = .zero
-
-    var body: some View {
-        GeometryReader { geometry in
-
-            if let url = url {
-
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .onAppear {
-                            let size = geometry.size
-
-                            if size != .zero {
-                                self.imageSize = size
-                                print("📌", size)
-                            }
-                        }
-                } placeholder: {
-                    ProgressView()
-                }
-
-            } else {
-                Color.gray
-            }
-        }
-    }
-}
-
 
 #Preview {
     ExhibitedImageCell(imageURL: "https://picsum.photos/seed/picsum/200/300",
