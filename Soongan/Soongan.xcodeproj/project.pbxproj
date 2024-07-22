@@ -10,6 +10,7 @@
 		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
 		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
@@ -46,6 +47,7 @@
 		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
 				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
 				AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */,
+				AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
 				AB8D1E0F2C3A7A6F00D333AC /* ExhibitedImageCell.swift in Sources */,
+				AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */,
 				BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
