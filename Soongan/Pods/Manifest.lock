@@ -16,11 +16,25 @@ PODS:
     - AppAuth/Core (~> 1.7)
     - GTMSessionFetcher/Core (< 4.0, >= 3.3)
   - GTMSessionFetcher/Core (3.4.1)
+  - KakaoSDKAuth (2.22.2):
+    - KakaoSDKCommon (= 2.22.2)
+  - KakaoSDKCommon (2.22.2):
+    - KakaoSDKCommon/Common (= 2.22.2)
+    - KakaoSDKCommon/Network (= 2.22.2)
+  - KakaoSDKCommon/Common (2.22.2)
+  - KakaoSDKCommon/Network (2.22.2):
+    - Alamofire (~> 5.9.0)
+    - KakaoSDKCommon/Common (= 2.22.2)
+  - KakaoSDKUser (2.22.2):
+    - KakaoSDKAuth (= 2.22.2)
 
 DEPENDENCIES:
   - Alamofire (= 5.9.1)
   - GoogleSignIn
   - GoogleSignInSwiftSupport
+  - KakaoSDKAuth
+  - KakaoSDKCommon
+  - KakaoSDKUser
 
 SPEC REPOS:
   trunk:
@@ -30,6 +44,9 @@ SPEC REPOS:
     - GoogleSignInSwiftSupport
     - GTMAppAuth
     - GTMSessionFetcher
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
@@ -38,7 +55,10 @@ SPEC CHECKSUMS:
   GoogleSignInSwiftSupport: bbbd5afe90c9e22e91d2fa5a55498e00e3227cef
   GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
   GTMSessionFetcher: 8000756fc1c19d2e5697b90311f7832d2e33f6cd
+  KakaoSDKAuth: 6a4c46f84c772a19f24121d7f5a42aa861ebc0e7
+  KakaoSDKCommon: d4f76f3b900dbef924a09196c8eb9245aefcaf83
+  KakaoSDKUser: 642c339cdb3722216241c541a843f6a4588f6cf4
 
-PODFILE CHECKSUM: bf457dc1bd445ec81765992e02cb754dcb71c4b2
+PODFILE CHECKSUM: a127c6a0fd85a7651c819998d3cc01c3dfaf661f
 
 COCOAPODS: 1.15.2
