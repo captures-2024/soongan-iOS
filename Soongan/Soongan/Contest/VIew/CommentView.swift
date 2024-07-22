@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CommentView: View {
+    @State private var comment: String = ""
+
     var body: some View {
         VStack {
             Spacer(minLength: 28)
@@ -23,7 +25,54 @@ struct CommentView: View {
                     CommentCell()
                 }
             }
-            .padding(.horizontal, 12)
+            
+            commentTextField
+        }
+    }
+
+    private var commentTextField: some View {
+        VStack {
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(Color.primaryA)
+                .opacity(0.3)
+
+            HStack {
+                Circle()
+                    .frame(width: 40, height: 40)
+                    .foregroundStyle(Color.init(hex: 0xD9D9D9))
+
+                TextField(
+                    "",
+                    text: $comment,
+                    prompt: Text("댓글을 작성해 주세요"),
+                    axis: .vertical
+                )
+                .padding(.leading, 16)
+                .padding(.vertical, 13)
+                .tint(.primaryA)
+                .font(.system(size: 14, weight: .regular))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 202)
+                        .stroke(Color.black.opacity(0.3), lineWidth: 1)
+
+                    if !comment.isEmpty {
+                        HStack {
+                            Spacer()
+
+                            Button {
+                                // TODO: send action
+                            } label: {
+                                Image("sendButton")
+                                    .padding(.trailing, 8)
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.bottom, 8)
+            .padding(.leading, 12)
+            .padding(.trailing, 16)
         }
     }
 }
@@ -35,7 +84,7 @@ fileprivate struct CommentCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             CommonCommentCell(isParent: true)
-
+            
             if !isReplyOpened {
                 Button {
                     isReplyOpened.toggle()
@@ -43,7 +92,7 @@ fileprivate struct CommentCell: View {
                     HStack {
                         Rectangle()
                             .frame(width: 27, height: 1)
-
+                        
                         Text("답글 3개 더 보기")
                             .font(.system(size: 12, weight: .bold))
                     }
@@ -53,20 +102,20 @@ fileprivate struct CommentCell: View {
                     .padding(.leading, 44)
                 }
             }
-
+            
             if isReplyOpened {
                 Group {
                     ForEach(0..<3) { _ in
                         CommonCommentCell(isParent: false)
                     }
-
+                    
                     Button {
                         isReplyOpened.toggle()
                     } label: {
                         HStack {
                             Rectangle()
                                 .frame(width: 27, height: 1)
-
+                            
                             Text("답글 숨기기")
                                 .font(.system(size: 12, weight: .bold))
                         }
@@ -79,6 +128,7 @@ fileprivate struct CommentCell: View {
                 .padding(.leading, 44)
             }
         }
+        .padding(.horizontal, 12)
     }
 }
 
