@@ -23,16 +23,73 @@ struct CommentView: View {
                     CommentCell()
                 }
             }
+            .padding(.horizontal, 12)
         }
     }
 }
 
 fileprivate struct CommentCell: View {
 
+    @State private var isReplyOpened: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            CommonCommentCell(isParent: true)
+
+            if !isReplyOpened {
+                Button {
+                    isReplyOpened.toggle()
+                } label: {
+                    HStack {
+                        Rectangle()
+                            .frame(width: 27, height: 1)
+
+                        Text("답글 3개 더 보기")
+                            .font(.system(size: 12, weight: .bold))
+                    }
+                    .foregroundStyle(Color.primaryA)
+                    .opacity(0.9)
+                    .padding(.top, 12)
+                    .padding(.leading, 44)
+                }
+            }
+
+            if isReplyOpened {
+                Group {
+                    ForEach(0..<3) { _ in
+                        CommonCommentCell(isParent: false)
+                    }
+
+                    Button {
+                        isReplyOpened.toggle()
+                    } label: {
+                        HStack {
+                            Rectangle()
+                                .frame(width: 27, height: 1)
+
+                            Text("답글 숨기기")
+                                .font(.system(size: 12, weight: .bold))
+                        }
+                        .foregroundStyle(Color.primaryA)
+                        .opacity(0.9)
+                        .padding(.top, 12)
+                        .padding(.leading, 36)
+                    }
+                }
+                .padding(.leading, 44)
+            }
+        }
+    }
+}
+
+fileprivate struct CommonCommentCell: View {
+    var isParent: Bool
+
     var body: some View {
         HStack(alignment: .top) {
             Circle()
-                .frame(width: 36, height: 36)
+                .frame(width: isParent ? 36 : 28)
+                .aspectRatio(1.0, contentMode: .fit)
                 .foregroundStyle(Color.init(hex: 0xD9D9D9))
 
             VStack(alignment: .leading, spacing: 0) {
@@ -51,7 +108,7 @@ fileprivate struct CommentCell: View {
                 }
                 .padding(.bottom, 4)
 
-                Text("댓글 내용")
+                Text("댓글 내용임")
                     .padding(.bottom, 8)
 
                 HStack {
@@ -81,7 +138,7 @@ fileprivate struct CommentCell: View {
                     Spacer()
 
                     Text("15시간 전")
-                        .padding(.trailing, 8)
+                        .padding(.trailing, 28)
                         .font(.system(size: 12, weight: .regular))
                         .foregroundStyle(Color.primaryA)
                         .opacity(0.6)
@@ -90,7 +147,7 @@ fileprivate struct CommentCell: View {
             }
         }
         .padding(.top, 16)
-        .padding(.horizontal, 12)
+        .padding(.bottom, 4)
     }
 }
 
