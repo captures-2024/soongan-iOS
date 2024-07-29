@@ -13,7 +13,9 @@
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
 		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
+		AB8D1E0F2C3A7A6F00D333AC /* ExhibitedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */; };
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
+		ABA7F3BD2C31B51200CEB943 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7F3BC2C31B51200CEB943 /* Bundle+.swift */; };
 		ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
@@ -47,7 +49,9 @@
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
+		AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitedImageCell.swift; sourceTree = "<group>"; };
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
+		ABA7F3BC2C31B51200CEB943 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				BF5233532C20380100BA5683 /* GalleryView.swift */,
 				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
 				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
+				AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				BF7303522BF4B3C500A482B3 /* Text+.swift */,
 				BFB73BCD2C061C0000A9A10E /* Data+.swift */,
 				BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */,
+				ABA7F3BC2C31B51200CEB943 /* Bundle+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
+				AB8D1E0F2C3A7A6F00D333AC /* ExhibitedImageCell.swift in Sources */,
 				BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
@@ -440,6 +447,7 @@
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
+				ABA7F3BD2C31B51200CEB943 /* Bundle+.swift in Sources */,
 				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
 				BF5233542C20380100BA5683 /* GalleryView.swift in Sources */,
 			);
@@ -581,6 +589,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soongan/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -614,6 +623,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soongan/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

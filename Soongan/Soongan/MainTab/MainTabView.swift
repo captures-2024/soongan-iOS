@@ -60,7 +60,7 @@ fileprivate struct CustomTabBar: View {
                 Spacer()
             }
         }
-        .frame(height: 83)
+        .frame(height: Constants.screenHeight * (83/852))
         .background(
             Rectangle()
                 .fill(.white.shadow(.drop(color: Color(hex: 0x000000, alpha: 0.25),
