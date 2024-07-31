@@ -10,6 +10,8 @@ import SwiftUI
 struct PhotoDetailView: View {
     // 사진 전체화면 클릭 
     @State private var isImageLarge = false
+    @State private var isCommentModalShowed = false
+
     @StateObject var appState = AppState.shared
     var body: some View {
         ZStack {
@@ -17,6 +19,7 @@ struct PhotoDetailView: View {
                 .resizable()
                 .frame(width: Constants.screenWidth, height: Constants.screenHeight)
                 .ignoresSafeArea()
+
             VStack(spacing: 0) {
                 ZStack {
                     HStack(spacing: 0){
@@ -28,6 +31,7 @@ struct PhotoDetailView: View {
                 }
                 .padding(.bottom, 86)
                 .padding(.top, 73)
+
                 ScrollView {
                     ZStack {
                         Image("background")
@@ -68,6 +72,7 @@ struct PhotoDetailView: View {
                     }
                     .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
                     .padding(.bottom, 40)
+
                     HStack(spacing: 0) {
                         Spacer()
                         ZStack {
@@ -95,7 +100,7 @@ struct PhotoDetailView: View {
                                                 Image("icHeart")
                                             }
                                             Button {
-                                                
+                                                isCommentModalShowed.toggle()
                                             } label: {
                                                 Image("icComment")
                                             }
@@ -121,6 +126,11 @@ struct PhotoDetailView: View {
                     Spacer()
                 }
             }
+        }
+        .sheet(isPresented: $isCommentModalShowed) {
+            CommentView()
+                .presentationDetents([.height(600)])
+                .presentationDragIndicator(.visible)
         }
     }
 }
