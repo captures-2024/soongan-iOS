@@ -137,7 +137,7 @@ struct snsButtonView: View {
         Button(action: {
             switch title {
             case "Apple로 로그인":
-                AppState.shared.navigationPath.append(MainViewType.apple)
+                authManager.appleLogin()
             case "Google로 로그인":
                 authManager.googleLogin()
             case "Kakao로 로그인":

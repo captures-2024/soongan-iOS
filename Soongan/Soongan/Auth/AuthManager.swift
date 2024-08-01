@@ -9,6 +9,7 @@ import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
 import KakaoSDKUser
+import AuthenticationServices
 
 // 소셜 로그인을 다루는 매니저
 final class AuthManager: NSObject {
@@ -58,4 +59,91 @@ final class AuthManager: NSObject {
             }
         }
     }
+    
+    // 애플 로그인
+    @MainActor
+    func appleLogin() {
+        let appleIdProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIdProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func loginToServer(request: LoginRequest, userAgent: String) async {
+        let result = await AuthService.loginServer(body: request, userAgent: userAgent)
+        
+        if let tokens = result?.data {
+            print("accessToken: \(tokens.accessToken)")
+            print("refreshToken: \(tokens.refreshToken)")
+        } else if result?.status == 404 {
+            // 로그인 실패(404)인 경우 회원가입 필요
+            print("회원가입 필요")
+        }
+    }
+}
+
+extension AuthManager: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+    
+    // 애플 로그인 성공
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let appleIdCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+        let userId = appleIdCredential.user
+        var email = appleIdCredential.email ?? ""
+        let idTokenData = appleIdCredential.identityToken
+        let idTokenString = String(data: idTokenData!, encoding: .utf8) ?? ""
+        // email이 비어있을 때(2번째 로그인 부터는 email이 identityToken에 들어있음)
+        if email.isEmpty {
+            if let tokenString = String(data: appleIdCredential.identityToken ?? Data(), encoding: .utf8) {
+                email = decode(jwtToken: tokenString)["email"] as? String ?? ""
+            }
+        }
+        
+        if let authorizationCode = String(data: appleIdCredential.authorizationCode ?? Data(), encoding: .utf8) {
+            KeyChainManager.addItem(key: "appleIdtoken", value: idTokenString)
+            let loginRequest = LoginRequest(provider: "APPLE", idToken: idTokenString)
+            Task {
+                await self.loginToServer(request: loginRequest, userAgent: "IOS")
+                
+            }
+        } else { // TODO: 토큰 못 가져오는 경우 ErrorHandler 처리
+            print("토큰 못 가져옴")
+        }
+    }
+    
+    private func decode(jwtToken jwt: String) -> [String: Any] {
+        func base64UrlDecode(_ value: String) -> Data? {
+            var base64 = value
+                .replacingOccurrences(of: "-", with: "+")
+                .replacingOccurrences(of: "_", with: "/")
+            
+            let length = Double(base64.lengthOfBytes(using: String.Encoding.utf8))
+            let requiredLength = 4 * ceil(length / 4.0)
+            let paddingLength = requiredLength - length
+            if paddingLength > 0 {
+                let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
+                base64 = base64 + padding
+            }
+            return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
+        }
+        
+        func decodeJWTPart(_ value: String) -> [String: Any]? {
+            guard let bodyData = base64UrlDecode(value),
+                  let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
+                return nil
+            }
+            
+            return payload
+        }
+        
+        let segments = jwt.components(separatedBy: ".")
+        return decodeJWTPart(segments[1]) ?? [:]
+    }
+
 }
