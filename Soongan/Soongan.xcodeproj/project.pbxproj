@@ -10,6 +10,8 @@
 		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB0C0F702C5C8DCE007812C5 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C0F6F2C5C8DCE007812C5 /* UserEndPoint.swift */; };
+		AB0C0F722C5C8E3C007812C5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0C0F712C5C8E3C007812C5 /* UserService.swift */; };
 		AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
@@ -53,6 +55,8 @@
 		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB0C0F6F2C5C8DCE007812C5 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
+		AB0C0F712C5C8E3C007812C5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 				AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB0C0F6E2C5C8DA7007812C5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				AB0C0F6F2C5C8DCE007812C5 /* UserEndPoint.swift */,
+				AB0C0F712C5C8E3C007812C5 /* UserService.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		AB4D63EC2C2A99B800E35084 /* VIew */ = {
@@ -294,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE5DE8A2C58B6230018564C /* Auth */,
+				AB0C0F6E2C5C8DA7007812C5 /* User */,
 				BFB73BBD2C061A7100A9A10E /* Base */,
 			);
 			path = Network;
@@ -483,6 +497,7 @@
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
+				AB0C0F722C5C8E3C007812C5 /* UserService.swift in Sources */,
 				AB58AB272C246D280070420B /* MainTabType.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
@@ -502,6 +517,7 @@
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
 				ABA7F3BD2C31B51200CEB943 /* Bundle+.swift in Sources */,
+				AB0C0F702C5C8DCE007812C5 /* UserEndPoint.swift in Sources */,
 				BF73034E2BF4AB6D00A482B3 /* Constants.swift in Sources */,
 				BF5233542C20380100BA5683 /* GalleryView.swift in Sources */,
 			);
