@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum UserEndPoint {
-
+    case checkNicknameValidation(parameter: String)
 }
 
 extension UserEndPoint: EndPoint {
@@ -20,19 +20,25 @@ extension UserEndPoint: EndPoint {
     
     var path: String {
         switch self {
-
+        case .checkNicknameValidation:
+            return "/check-nickname"
         }
     }
     
-    var method: Alamofire.HTTPMethod {
+    var method: HTTPMethod {
         switch self {
-
+        case .checkNicknameValidation:
+            return .get
         }
     }
     
     var task: APITask {
+        var params: [String: Any] = [:]
+
         switch self {
-            
+        case let .checkNicknameValidation(parameter):
+            params["nickname"] = parameter
+            return .requestParameters(parameters: params)
         }
     }
 }

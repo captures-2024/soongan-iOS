@@ -10,4 +10,7 @@ import Alamofire
 
 struct UserService {
 
+    static func checkNicknameValidation(parameter: String) async -> BaseResponse<Bool>? {
+        return await NetworkManager.shared.request(UserEndPoint.checkNicknameValidation(parameter: parameter))
+    }
 }
