@@ -13,6 +13,7 @@
 		AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */; };
 		AB23BEF62C61E4D800E12702 /* CommentPlusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEF52C61E4D800E12702 /* CommentPlusBottomView.swift */; };
 		AB23BEFC2C61F7F800E12702 /* ReportCasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */; };
+		AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFD2C61FEA700E12702 /* BlackButton.swift */; };
 		AB3F154B2C61E1EE00C77E13 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
@@ -59,6 +60,7 @@
 		AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AB23BEF52C61E4D800E12702 /* CommentPlusBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPlusBottomView.swift; sourceTree = "<group>"; };
 		AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCasesView.swift; sourceTree = "<group>"; };
+		AB23BEFD2C61FEA700E12702 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */,
 				ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */,
+				AB23BEFD2C61FEA700E12702 /* BlackButton.swift */,
 			);
 			name = Component;
 			path = Soongan/Component;
@@ -540,6 +543,7 @@
 				BFE3EC9F2C58A54900A9D4BB /* AuthError.swift in Sources */,
 				BF52334F2C20332000BA5683 /* UserData.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
+				AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */,
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFE5DE902C58B6790018564C /* Secrets.swift in Sources */,
 				BFE5DE8E2C58B63A0018564C /* AuthService.swift in Sources */,
