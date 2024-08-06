@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CommentView: View {
     @State private var comment: String = ""
-
-    @Binding var isCommentBottomSheetOpened: Bool
+    @State private var isCommentBottomSheetOpened: Bool = false
 
     var body: some View {
         VStack {
@@ -30,7 +29,6 @@ struct CommentView: View {
             
             commentTextField
         }
-        .background(Color.white)
         .sheet(isPresented: $isCommentBottomSheetOpened) {
             CommentPlusBottomView()
                 .presentationDetents([.height(240)])
@@ -86,5 +84,5 @@ struct CommentView: View {
 }
 
 #Preview {
-    CommentView(isCommentBottomSheetOpened: .constant(true))
+    CommentView()
 }

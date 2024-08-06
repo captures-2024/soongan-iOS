@@ -11,7 +11,6 @@ struct PhotoDetailView: View {
     // 사진 전체화면 클릭 
     @State private var isImageLarge = false
     @State private var isCommentModalShowed = false
-    @State private var isCommentBottomSheetOpened = false
 
     @StateObject var appState = AppState.shared
     var body: some View {
@@ -40,18 +39,18 @@ struct PhotoDetailView: View {
                             .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
                         VStack(spacing: 0) {
                             HStack(spacing: 0) {
-                                
+
                                 Spacer()
                                 Button(action: {
                                 }, label: {
-                                    
+
                                     Image("plusInfoButton")
                                         .frame(width: 30, height: 30)
                                 })
-                        
+
                             }
                             Spacer()
-                      
+
                         }
                         VStack(spacing: 0) {
                             Spacer()
@@ -61,14 +60,14 @@ struct PhotoDetailView: View {
                                     withAnimation(nil) {
                                         isImageLarge.toggle()
                                     }
-                                  
+
                                 }, label: {
                                     Image("viewAllButton")
                                         .padding(.bottom, 8)
                                         .padding(.trailing, 8)
                                 })
                             }
-                          
+
                         }
                     }
                     .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
@@ -77,8 +76,8 @@ struct PhotoDetailView: View {
                     HStack(spacing: 0) {
                         Spacer()
                         ZStack {
-                                Rectangle()
-                                    .frame(width: 289, height: 124)
+                            Rectangle()
+                                .frame(width: 289, height: 124)
                             HStack(spacing: 0) {
                                 VStack(alignment: .leading, spacing: 12) {
                                     Text("무제")
@@ -91,12 +90,12 @@ struct PhotoDetailView: View {
                                         Spacer()
                                         HStack(spacing: 24) {
                                             Button {
-                                                
+
                                             } label: {
                                                 Image("icShare")
                                             }
                                             Button {
-                                                
+
                                             } label: {
                                                 Image("icHeart")
                                             }
@@ -105,31 +104,32 @@ struct PhotoDetailView: View {
                                             } label: {
                                                 Image("icComment")
                                             }
-           
+
                                         }
                                         .padding(.trailing, 20)
-                            
+
                                     }
-                                 
+
                                 }
                                 .foregroundStyle(.white)
                                 .padding(.leading, 16)
                                 Spacer()
                             }
                             .frame(width: 289, height: 124)
-                        
+
                         }
                         .padding(.trailing, 20)
                         .padding(.bottom, 63)
-                        
+
                     }
-                   
+
                     Spacer()
                 }
             }
+
         }
         .sheet(isPresented: $isCommentModalShowed) {
-            CommentView(isCommentBottomSheetOpened: $isCommentBottomSheetOpened)
+            CommentView()
                 .presentationDetents([.height(600)])
                 .presentationDragIndicator(.visible)
         }
