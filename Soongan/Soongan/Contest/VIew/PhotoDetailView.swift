@@ -11,6 +11,7 @@ struct PhotoDetailView: View {
     // 사진 전체화면 클릭 
     @State private var isImageLarge = false
     @State private var isCommentModalShowed = false
+    @State private var isCommentBottomSheetOpened = false
 
     @StateObject var appState = AppState.shared
     var body: some View {
@@ -128,7 +129,7 @@ struct PhotoDetailView: View {
             }
         }
         .sheet(isPresented: $isCommentModalShowed) {
-            CommentView()
+            CommentView(isCommentBottomSheetOpened: $isCommentBottomSheetOpened)
                 .presentationDetents([.height(600)])
                 .presentationDragIndicator(.visible)
         }
