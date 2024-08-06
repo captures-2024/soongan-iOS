@@ -35,14 +35,18 @@ enum ReportCases: CaseIterable {
 
 struct ReportCasesView: View {
 
+    @Binding var selectedReportView: ReportViewType?
+
     var body: some View {
         VStack {
+            Spacer(minLength: 28)
+
             Text("신고")
                 .font(.system(size: 16, weight: .bold))
-                .padding(.top, 28)
                 .padding(.bottom, 8)
 
             Divider()
+                .padding(.bottom, 16)
 
             ForEach(ReportCases.allCases.indices, id: \.self) { idx in
                 Group {
@@ -54,6 +58,9 @@ struct ReportCasesView: View {
                     }
                 }
                 .padding(.horizontal, 24)
+                .onTapGesture {
+                    selectedReportView = .submitReport
+                }
             }
         }
     }
@@ -64,11 +71,11 @@ struct ReportCasesView: View {
                 .font(.system(size: 16, weight: .bold))
             Spacer()
         }
-        .padding(.vertical, 16)
+        .padding(.vertical, 12)
         .padding(.leading, 16)
     }
 }
 
 #Preview {
-    ReportCasesView()
+    ReportCasesView(selectedReportView: .constant(.submitReport))
 }

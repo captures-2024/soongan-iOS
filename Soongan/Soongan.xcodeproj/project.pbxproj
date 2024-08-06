@@ -16,6 +16,7 @@
 		AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFD2C61FEA700E12702 /* BlackButton.swift */; };
 		AB23BF002C62001700E12702 /* SubmitReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFF2C62001700E12702 /* SubmitReportView.swift */; };
 		AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */; };
+		AB23BF042C622BB600E12702 /* ReportViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF032C622BB600E12702 /* ReportViewType.swift */; };
 		AB3F154B2C61E1EE00C77E13 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
@@ -65,6 +66,7 @@
 		AB23BEFD2C61FEA700E12702 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		AB23BEFF2C62001700E12702 /* SubmitReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReportView.swift; sourceTree = "<group>"; };
 		AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCompletedView.swift; sourceTree = "<group>"; };
+		AB23BF032C622BB600E12702 /* ReportViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewType.swift; sourceTree = "<group>"; };
 		AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */,
 				AB23BEFF2C62001700E12702 /* SubmitReportView.swift */,
 				AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */,
+				AB23BF032C622BB600E12702 /* ReportViewType.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */,
+				AB23BF042C622BB600E12702 /* ReportViewType.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */,
