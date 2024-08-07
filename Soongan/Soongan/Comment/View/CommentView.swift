@@ -34,7 +34,6 @@ struct CommentView: View {
         .sheet(isPresented: $isCommentBottomSheetOpened) {
             CommentPlusBottomView()
                 .presentationDetents([.height(240)])
-                .presentationDragIndicator(.visible)
         }
     }
 

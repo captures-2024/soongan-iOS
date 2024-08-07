@@ -11,7 +11,10 @@ struct CommentPlusBottomView: View {
 
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            ModalHandler()
+                .padding(.bottom, 40)
+
             Button {
                 // TODO: 편집
             } label: {
@@ -40,7 +43,6 @@ struct CommentPlusBottomView: View {
         .font(.system(size: 16, weight: .bold))
         .padding(.horizontal, 20)
         .padding(.bottom, 16)
-        .padding(.top, 56)
 //        .sheet(item: $selectedReportView) { sheet in
 //            switch sheet {
 //            case .reportCase:

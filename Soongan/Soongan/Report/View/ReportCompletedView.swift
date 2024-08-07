@@ -10,10 +10,12 @@ import SwiftUI
 struct ReportCompletedView: View {
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            ModalHandler()
+                .padding(.bottom, 10)
+
             Text("신고")
                 .font(.system(size: 16, weight: .bold))
-                .padding(.top, 28)
                 .padding(.bottom, 8)
 
             Divider()

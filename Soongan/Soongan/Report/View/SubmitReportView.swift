@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SubmitReportView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            ModalHandler()
+                .padding(.bottom, 10)
+
             HStack(spacing: 0) {
                 Button {
 
@@ -23,6 +26,12 @@ struct SubmitReportView: View {
                     .font(.system(size: 16, weight: .bold))
 
                 Spacer()
+
+                Button {
+
+                } label: {
+
+                }
             }
             .padding(.top, 28)
             .padding(.bottom, 8)
