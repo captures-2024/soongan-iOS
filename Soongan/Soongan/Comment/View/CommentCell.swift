@@ -88,6 +88,7 @@ fileprivate struct CommonCommentCell: View {
 
                     Button {
                         isCommentBottomSheetOpened.toggle()
+
                     } label: {
                         Image("icEllipsis")
                             .resizable()

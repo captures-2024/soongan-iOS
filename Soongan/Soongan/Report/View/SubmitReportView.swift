@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SubmitReportView: View {
+    @Binding var selectedReportViewType: ReportViewType
+    var reportCase: ReportCases
+
     var body: some View {
         VStack(spacing: 0) {
             ModalHandler()
@@ -15,7 +18,7 @@ struct SubmitReportView: View {
 
             HStack(spacing: 0) {
                 Button {
-
+                    selectedReportViewType = .reportCase
                 } label: {
                     Image("icLeft")
                 }
@@ -24,36 +27,45 @@ struct SubmitReportView: View {
 
                 Text("신고")
                     .font(.system(size: 16, weight: .bold))
+                    .padding(.bottom, 8)
+                    .offset(x: -20)
 
                 Spacer()
-
-                Button {
-
-                } label: {
-
-                }
             }
-            .padding(.top, 28)
+            .padding(.top, 10)
             .padding(.bottom, 8)
-            .padding(.horizontal, 20)
+            .padding(.leading, 20)
 
             Divider()
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("이 댓글을")
+                    Text("\"\(reportCase.title)\"(으)로")
+                    Text("정말 신고하시겠습니까?")
+                }
 
-            Text("이 게시물을 도배로 정말 신고하겠습니까?")
-                .lineLimit(2)
-                .padding(.top, 40)
-                .padding(.bottom, 48)
-                .padding(.horizontal, 40)
+                Spacer()
+            }
+            .font(.system(size: 16, weight: .bold))
+            .padding(.top, 17)
+            .padding(.leading, 40)
+
+            Spacer()
 
             BlackButton(title: "신고 제출") {
-                // TODO: push
+                selectedReportViewType = .reportCompleted
             }
+            .padding(.bottom, 28)
             .padding(.horizontal, 20)
         }
-        .padding(.bottom, 28)
+        .background(Color.white)
     }
 }
 
 #Preview {
-    SubmitReportView()
+    SubmitReportView(
+        selectedReportViewType: .constant(.reportCompleted),
+        reportCase: .inappropriate
+    )
 }

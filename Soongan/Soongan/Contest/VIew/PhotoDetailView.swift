@@ -10,8 +10,9 @@ import SwiftUI
 struct PhotoDetailView: View {
     // 사진 전체화면 클릭
     @State private var isImageLarge = false
-    @State private var isCommentModalShowed = false
+    @State private var isCommentSheetOpened = false
     @State private var isCommentBottomSheetOpened = false
+    @State private var selectedReportView = ReportViewType.none
 
     @StateObject var appState = AppState.shared
     var body: some View {
@@ -38,6 +39,7 @@ struct PhotoDetailView: View {
                         Image("background")
                             .resizable()
                             .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
+
                         VStack(spacing: 0) {
                             HStack(spacing: 0) {
 
@@ -101,7 +103,7 @@ struct PhotoDetailView: View {
                                                 Image("icHeart")
                                             }
                                             Button {
-                                                isCommentModalShowed.toggle()
+                                                isCommentSheetOpened = true
                                             } label: {
                                                 Image("icComment")
                                             }
@@ -117,7 +119,7 @@ struct PhotoDetailView: View {
                                 Spacer()
                             }
                             .frame(width: 289, height: 124)
-                            
+
                         }
                         .padding(.trailing, 20)
                         .padding(.bottom, 63)
@@ -129,20 +131,68 @@ struct PhotoDetailView: View {
             }
 
             if isCommentBottomSheetOpened {
-                Color.primaryA.opacity(0.5)
-                    .edgesIgnoringSafeArea(.all)
-                    .transition(.opacity)
+                modalBlackView
                     .onTapGesture {
                         isCommentBottomSheetOpened = false
                     }
             }
+
+            if selectedReportView != .none {
+                modalBlackView
+                    .onTapGesture {
+                        selectedReportView = .none
+                        isCommentSheetOpened = true
+                    }
+            }
+
+            reportModalView
+
         }
         .sheet(
-            isPresented: $isCommentModalShowed,
+            isPresented: $isCommentSheetOpened,
             onDismiss: { isCommentBottomSheetOpened = false }
         ) {
-            CommentView(isCommentBottomSheetOpened: $isCommentBottomSheetOpened)
-                .presentationDetents([.height(600)])
+            CommentView(
+                isCommentSheetOpened: $isCommentSheetOpened,
+                isCommentBottomSheetOpened: $isCommentBottomSheetOpened,
+                selectedReportViewType: $selectedReportView
+            )
+            .presentationDetents([.height(600)])
+        }
+        .onChange(of: selectedReportView) { newValue in
+            if newValue == .completed {
+                isCommentSheetOpened = true
+                selectedReportView = .none
+            }
+        }
+    }
+
+    private var modalBlackView: some View {
+        Color.primaryA.opacity(0.5)
+            .edgesIgnoringSafeArea(.all)
+            .transition(.opacity)
+    }
+
+    private var reportModalView: some View {
+        ReportModalView(mode: $selectedReportView) {
+            Group {
+                switch selectedReportView {
+                case .reportCase:
+                    ReportCasesView(selectedReportView: $selectedReportView)
+
+                case let .submitReport(reportCase):
+                    SubmitReportView(
+                        selectedReportViewType: $selectedReportView,
+                        reportCase: reportCase
+                    )
+
+                case .reportCompleted:
+                    ReportCompletedView(selectedReportView: $selectedReportView)
+                    
+                case .none, .completed:
+                    EmptyView()
+                }
+            }
         }
     }
 }

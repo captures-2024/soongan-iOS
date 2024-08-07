@@ -13,7 +13,7 @@ struct BlackButton: View {
 
     var body: some View {
         Button {
-
+            action()
         } label: {
             Text(title)
                 .font(.system(size: 14))

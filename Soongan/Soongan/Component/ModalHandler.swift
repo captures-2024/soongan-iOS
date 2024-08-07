@@ -13,7 +13,7 @@ struct ModalHandler: View {
         RoundedRectangle(cornerRadius: 100)
             .foregroundStyle(Color.primaryA)
             .frame(width: 40, height: 4)
-            .padding(.top, 12)
+            .padding(.top, 14)
     }
 }
 

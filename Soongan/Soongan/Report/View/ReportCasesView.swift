@@ -35,10 +35,12 @@ enum ReportCases: CaseIterable {
 
 struct ReportCasesView: View {
 
+    @Binding var selectedReportView: ReportViewType
+
     var body: some View {
         VStack(spacing: 0) {
             ModalHandler()
-                .padding(.bottom, 10)
+                .padding(.bottom, 12)
 
             Text("신고")
                 .font(.system(size: 16, weight: .bold))
@@ -56,12 +58,16 @@ struct ReportCasesView: View {
                             .background(Color.primaryA.opacity(0.3))
                     }
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
                 .onTapGesture {
-                    // TODO: 모달 이동
+                    selectedReportView = .submitReport(reportCase: ReportCases.allCases[idx])
                 }
             }
+
+            Spacer()
         }
+        .padding(.bottom, 16)
+        .background(Color.white)
     }
 
     private func reportCaseView(title: String) -> some View {
@@ -70,11 +76,11 @@ struct ReportCasesView: View {
                 .font(.system(size: 16, weight: .bold))
             Spacer()
         }
-        .padding(.vertical, 12)
-        .padding(.leading, 16)
+        .padding(.vertical, 16)
+        .padding(.leading, 20)
     }
 }
 
 #Preview {
-    ReportCasesView()
+    ReportCasesView(selectedReportView: .constant(.submitReport(reportCase: .infringe)))
 }

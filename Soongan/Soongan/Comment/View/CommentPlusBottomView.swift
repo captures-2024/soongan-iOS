@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CommentPlusBottomView: View {
 
+    @Binding var isCommentOpened: Bool
+    @Binding var isCommentBottomSheetOpened: Bool
+    @Binding var selectedReportView: ReportViewType
 
     var body: some View {
         VStack(spacing: 0) {
@@ -34,7 +37,9 @@ struct CommentPlusBottomView: View {
             blackDivider
 
             Button {
-
+                isCommentBottomSheetOpened = false
+                isCommentOpened = false
+                selectedReportView = .reportCase
             } label: {
                 commentButtonLabel(title: "신고하기", icon: "icReport")
                     .foregroundStyle(Color.negative)
@@ -43,20 +48,6 @@ struct CommentPlusBottomView: View {
         .font(.system(size: 16, weight: .bold))
         .padding(.horizontal, 20)
         .padding(.bottom, 16)
-//        .sheet(item: $selectedReportView) { sheet in
-//            switch sheet {
-//            case .reportCase:
-//                ReportCasesView(selectedReportView: $selectedReportView)
-//                    .presentationDetents([.height(428)])
-//                    .presentationDragIndicator(.visible)
-//            case .submitReport:
-//                SubmitReportView()
-//                    .presentationDetents([.height(263)])
-//                    .presentationDragIndicator(.visible)
-//            case .reportCompleted:
-//                ReportCompletedView()
-//            }
-//        }
     }
 
     private var blackDivider: some View {
@@ -76,5 +67,9 @@ struct CommentPlusBottomView: View {
 }
 
 #Preview {
-    CommentPlusBottomView()
+    CommentPlusBottomView(
+        isCommentOpened: .constant(true),
+        isCommentBottomSheetOpened: .constant(true),
+        selectedReportView: .constant(.reportCase)
+    )
 }

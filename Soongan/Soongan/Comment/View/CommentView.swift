@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CommentView: View {
     @State private var comment: String = ""
+    @Binding var isCommentSheetOpened: Bool
     @Binding var isCommentBottomSheetOpened: Bool
+    @Binding var selectedReportViewType: ReportViewType
 
     var body: some View {
         VStack(spacing: 0) {
@@ -40,12 +42,6 @@ struct CommentView: View {
                          }
 
                 commentBottomModalView
-                    .gesture(
-                        DragGesture()
-                            .onChanged { _ in
-                                isCommentBottomSheetOpened.toggle()
-                            }
-                    )
             }
         }
     }
@@ -99,17 +95,30 @@ struct CommentView: View {
     private var commentBottomModalView: some View {
         VStack {
             Spacer()
-            CommentPlusBottomView()
-                .background(Color.white)
-                .cornerRadius(20)
-                .frame(maxWidth: .infinity, maxHeight: 240)
-                .transition(.move(edge: .bottom))
-                .zIndex(1)
+            CommentPlusBottomView(
+                isCommentOpened: $isCommentSheetOpened,
+                isCommentBottomSheetOpened: $isCommentBottomSheetOpened,
+                selectedReportView: $selectedReportViewType
+            )
+            .background(Color.white)
+            .cornerRadius(20)
+            .frame(maxWidth: .infinity, maxHeight: 240)
+            .zIndex(1)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .gesture(
+            DragGesture()
+                .onChanged { _ in
+                    isCommentBottomSheetOpened.toggle()
+                }
+        )
     }
 }
 
 #Preview {
-    CommentView(isCommentBottomSheetOpened: .constant(true))
+    CommentView(
+        isCommentSheetOpened: .constant(true),
+        isCommentBottomSheetOpened: .constant(true),
+        selectedReportViewType: .constant(.reportCase)
+    )
 }

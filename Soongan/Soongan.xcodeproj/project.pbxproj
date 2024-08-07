@@ -16,8 +16,8 @@
 		AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFD2C61FEA700E12702 /* BlackButton.swift */; };
 		AB23BF002C62001700E12702 /* SubmitReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFF2C62001700E12702 /* SubmitReportView.swift */; };
 		AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */; };
-		AB23BF042C622BB600E12702 /* ReportViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF032C622BB600E12702 /* ReportViewType.swift */; };
 		AB23BF062C633DBE00E12702 /* ModalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF052C633DBE00E12702 /* ModalHandler.swift */; };
+		AB23BF082C63626000E12702 /* ReportModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF072C63626000E12702 /* ReportModalView.swift */; };
 		AB3F154B2C61E1EE00C77E13 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
@@ -67,8 +67,8 @@
 		AB23BEFD2C61FEA700E12702 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
 		AB23BEFF2C62001700E12702 /* SubmitReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReportView.swift; sourceTree = "<group>"; };
 		AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCompletedView.swift; sourceTree = "<group>"; };
-		AB23BF032C622BB600E12702 /* ReportViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewType.swift; sourceTree = "<group>"; };
 		AB23BF052C633DBE00E12702 /* ModalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHandler.swift; sourceTree = "<group>"; };
+		AB23BF072C63626000E12702 /* ReportModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModalView.swift; sourceTree = "<group>"; };
 		AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -165,10 +165,10 @@
 		AB23BEF82C61F7C100E12702 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB23BF072C63626000E12702 /* ReportModalView.swift */,
 				AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */,
 				AB23BEFF2C62001700E12702 /* SubmitReportView.swift */,
 				AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */,
-				AB23BF032C622BB600E12702 /* ReportViewType.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,6 +530,7 @@
 				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */,
+				AB23BF082C63626000E12702 /* ReportModalView.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
@@ -548,7 +549,6 @@
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
 				AB23BF062C633DBE00E12702 /* ModalHandler.swift in Sources */,
 				AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */,
-				AB23BF042C622BB600E12702 /* ReportViewType.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */,
