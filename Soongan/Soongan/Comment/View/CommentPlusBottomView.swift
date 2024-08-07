@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CommentPlusBottomView: View {
 
-    @State private var selectedReportView: ReportViewType? = nil
 
     var body: some View {
         VStack {
@@ -32,7 +31,7 @@ struct CommentPlusBottomView: View {
             blackDivider
 
             Button {
-                selectedReportView = .reportCase
+
             } label: {
                 commentButtonLabel(title: "신고하기", icon: "icReport")
                     .foregroundStyle(Color.negative)
@@ -42,20 +41,20 @@ struct CommentPlusBottomView: View {
         .padding(.horizontal, 20)
         .padding(.bottom, 16)
         .padding(.top, 56)
-        .sheet(item: $selectedReportView) { sheet in
-            switch sheet {
-            case .reportCase:
-                ReportCasesView(selectedReportView: $selectedReportView)
-                    .presentationDetents([.height(428)])
-                    .presentationDragIndicator(.visible)
-            case .submitReport:
-                SubmitReportView()
-                    .presentationDetents([.height(263)])
-                    .presentationDragIndicator(.visible)
-            case .reportCompleted:
-                ReportCompletedView()
-            }
-        }
+//        .sheet(item: $selectedReportView) { sheet in
+//            switch sheet {
+//            case .reportCase:
+//                ReportCasesView(selectedReportView: $selectedReportView)
+//                    .presentationDetents([.height(428)])
+//                    .presentationDragIndicator(.visible)
+//            case .submitReport:
+//                SubmitReportView()
+//                    .presentationDetents([.height(263)])
+//                    .presentationDragIndicator(.visible)
+//            case .reportCompleted:
+//                ReportCompletedView()
+//            }
+//        }
     }
 
     private var blackDivider: some View {

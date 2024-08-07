@@ -131,7 +131,6 @@ struct PhotoDetailView: View {
         .sheet(isPresented: $isCommentModalShowed) {
             CommentView()
                 .presentationDetents([.height(600)])
-                .presentationDragIndicator(.visible)
         }
     }
 }

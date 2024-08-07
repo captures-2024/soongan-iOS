@@ -13,10 +13,12 @@ struct CommentView: View {
 
     var body: some View {
         VStack {
-            Spacer(minLength: 28)
+
+            ModalIndicator()
 
             Text("댓글")
                 .font(.system(size: 16, weight: .bold))
+                .padding(.top, 10)
                 .padding(.bottom, 8)
 
             Divider()
