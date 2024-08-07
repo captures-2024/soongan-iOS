@@ -14,7 +14,7 @@ struct CommentView: View {
     var body: some View {
         VStack {
 
-            ModalIndicator()
+            ModalHandler()
 
             Text("댓글")
                 .font(.system(size: 16, weight: .bold))

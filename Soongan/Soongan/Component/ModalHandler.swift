@@ -1,5 +1,5 @@
 //
-//  ModalIndicator.swift
+//  ModalHandler.swift
 //  Soongan
 //
 //  Created by 김민 on 8/7/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ModalIndicator: View {
+struct ModalHandler: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: 100)
@@ -18,5 +18,5 @@ struct ModalIndicator: View {
 }
 
 #Preview {
-    ModalIndicator()
+    ModalHandler()
 }
