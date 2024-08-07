@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PhotoDetailView: View {
-    // 사진 전체화면 클릭 
+    // 사진 전체화면 클릭
     @State private var isImageLarge = false
     @State private var isCommentModalShowed = false
+    @State private var isCommentBottomSheetOpened = false
 
     @StateObject var appState = AppState.shared
     var body: some View {
@@ -116,7 +117,7 @@ struct PhotoDetailView: View {
                                 Spacer()
                             }
                             .frame(width: 289, height: 124)
-
+                            
                         }
                         .padding(.trailing, 20)
                         .padding(.bottom, 63)
@@ -127,9 +128,20 @@ struct PhotoDetailView: View {
                 }
             }
 
+            if isCommentBottomSheetOpened {
+                Color.primaryA.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity)
+                    .onTapGesture {
+                        isCommentBottomSheetOpened = false
+                    }
+            }
         }
-        .sheet(isPresented: $isCommentModalShowed) {
-            CommentView()
+        .sheet(
+            isPresented: $isCommentModalShowed,
+            onDismiss: { isCommentBottomSheetOpened = false }
+        ) {
+            CommentView(isCommentBottomSheetOpened: $isCommentBottomSheetOpened)
                 .presentationDetents([.height(600)])
         }
     }

@@ -9,16 +9,15 @@ import SwiftUI
 
 struct CommentView: View {
     @State private var comment: String = ""
-    @State private var isCommentBottomSheetOpened: Bool = false
+    @Binding var isCommentBottomSheetOpened: Bool
 
     var body: some View {
-        VStack {
-
+        VStack(spacing: 0) {
             ModalHandler()
+                .padding(.bottom, 10)
 
             Text("댓글")
                 .font(.system(size: 16, weight: .bold))
-                .padding(.top, 10)
                 .padding(.bottom, 8)
 
             Divider()
@@ -31,9 +30,23 @@ struct CommentView: View {
             
             commentTextField
         }
-        .sheet(isPresented: $isCommentBottomSheetOpened) {
-            CommentPlusBottomView()
-                .presentationDetents([.height(240)])
+        .overlay {
+            if isCommentBottomSheetOpened {
+                Color.primaryA.opacity(0.5)
+                         .edgesIgnoringSafeArea(.all)
+                         .transition(.opacity)
+                         .onTapGesture {
+                             isCommentBottomSheetOpened.toggle()
+                         }
+
+                commentBottomModalView
+                    .gesture(
+                        DragGesture()
+                            .onChanged { _ in
+                                isCommentBottomSheetOpened.toggle()
+                            }
+                    )
+            }
         }
     }
 
@@ -82,8 +95,21 @@ struct CommentView: View {
             .padding(.trailing, 16)
         }
     }
+
+    private var commentBottomModalView: some View {
+        VStack {
+            Spacer()
+            CommentPlusBottomView()
+                .background(Color.white)
+                .cornerRadius(20)
+                .frame(maxWidth: .infinity, maxHeight: 240)
+                .transition(.move(edge: .bottom))
+                .zIndex(1)
+        }
+        .edgesIgnoringSafeArea(.bottom)
+    }
 }
 
 #Preview {
-    CommentView()
+    CommentView(isCommentBottomSheetOpened: .constant(true))
 }
