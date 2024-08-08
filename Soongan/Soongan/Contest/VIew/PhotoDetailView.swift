@@ -14,124 +14,88 @@ struct PhotoDetailView: View {
 
     @StateObject var appState = AppState.shared
     var body: some View {
-        ZStack {
-            Image("galleryBackground")
-                .resizable()
-                .frame(width: Constants.screenWidth, height: Constants.screenHeight)
-                .ignoresSafeArea()
-
-            VStack(spacing: 0) {
-                ZStack {
-                    HStack(spacing: 0){
+        VStack(spacing: 0) {
+            ZStack(alignment: .bottom) {
+                Image("galleryBackground")
+                    .resizable()
+                    .frame(width: Constants.screenWidth)
+                    .ignoresSafeArea(.all)
+                
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
                         CapturesNavigationBar()
                         Spacer()
                     }
-                    Text("")
-                        .font(.system(size: 24, weight: .medium))
-                }
-                .padding(.bottom, 86)
-                .padding(.top, 73)
-
-                ScrollView {
-                    ZStack {
+                    .padding(.top, 68)
+                    .padding(.bottom, 71)
+                    
+                    ScrollView {
                         Image("background")
                             .resizable()
-                            .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
-                        VStack(spacing: 0) {
-                            HStack(spacing: 0) {
-                                
-                                Spacer()
-                                Button(action: {
-                                }, label: {
-                                    
-                                    Image("plusInfoButton")
-                                        .frame(width: 30, height: 30)
-                                })
-                        
-                            }
+                            .frame(width: Constants.screenWidth - 40, height: Constants.screenWidth - 40)
+                            .padding(.bottom, 138)
+                        HStack(spacing: 0) {
+                            Text("무제")
+                                .padding(.leading, 36)
                             Spacer()
+                        }
+                        HStack(spacing: 0) {
+                            Text("@dkddkq222")
+                                .padding(.leading, 36)
+                            Spacer()
+                        }
                       
-                        }
-                        VStack(spacing: 0) {
-                            Spacer()
-                            HStack(spacing: 0) {
-                                Spacer()
-                                Button(action: {
-                                    withAnimation(nil) {
-                                        isImageLarge.toggle()
-                                    }
-                                  
-                                }, label: {
-                                    Image("viewAllButton")
-                                        .padding(.bottom, 8)
-                                        .padding(.trailing, 8)
-                                })
-                            }
-                          
-                        }
                     }
-                    .frame(width: Constants.screenWidth - 40, height: isImageLarge ? Constants.screenWidth + 100 : Constants.screenWidth - 40)
-                    .padding(.bottom, 40)
-
-                    HStack(spacing: 0) {
-                        Spacer()
-                        ZStack {
-                                Rectangle()
-                                    .frame(width: 289, height: 124)
-                            HStack(spacing: 0) {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    Text("무제")
-                                        .font(.system(size: 20, weight: .medium))
-                                    Text("@dkdkkq222")
-                                        .font(.system(size: 14, weight: .medium))
-                                    HStack(spacing: 0) {
-                                        Text("D _ 1회차 | 평화")
-                                            .font(.system(size: 12, weight: .medium))
-                                        Spacer()
-                                        HStack(spacing: 24) {
-                                            Button {
-                                                
-                                            } label: {
-                                                Image("icShare")
-                                            }
-                                            Button {
-                                                
-                                            } label: {
-                                                Image("icHeart")
-                                            }
-                                            Button {
-                                                isCommentModalShowed.toggle()
-                                            } label: {
-                                                Image("icComment")
-                                            }
-           
-                                        }
-                                        .padding(.trailing, 20)
-                            
-                                    }
-                                 
-                                }
-                                .foregroundStyle(.white)
-                                .padding(.leading, 16)
-                                Spacer()
-                            }
-                            .frame(width: 289, height: 124)
-                        
-                        }
-                        .padding(.trailing, 20)
-                        .padding(.bottom, 63)
-                        
-                    }
-                   
-                    Spacer()
                 }
+                
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
+                        // 정보 더보기 버튼
+                        Button {
+                            
+                        } label: {
+                            Image("plusInfoButton")
+                                .renderingMode(.template)
+                                .foregroundStyle(Color.black)
+                        }
+                        .padding(.leading, 16)
+                        Spacer()
+
+                        // 좋아요 버튼
+                        Button {
+                            
+                        } label: {
+                            Image("icHeart")
+                                .renderingMode(.template)
+                                .foregroundStyle(Color.black)
+                        }
+                        .padding(.trailing, 8)
+                        Text("1.2m")
+                            .padding(.trailing, 31)
+                        // 댓글 버튼
+                        Button {
+                            
+                        } label: {
+                            Image("icComment")
+                                .renderingMode(.template)
+                                .foregroundStyle(Color.black)
+                        }
+                        .padding(.trailing, 8)
+                        Text("1.2m")
+                            .padding(.trailing, 31)
+                        
+                    }
+                    
+                }
+                .frame(width: Constants.screenWidth, height: 63)
+                .background(.white)
+                .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                
             }
         }
-        .sheet(isPresented: $isCommentModalShowed) {
-            CommentView()
-                .presentationDetents([.height(600)])
-                .presentationDragIndicator(.visible)
-        }
+
+        .toolbar(.hidden)
+
     }
 }
 

@@ -53,6 +53,13 @@ struct ContestOutlineView: View {
                     VStack {
                         CircleButton(imageName: "icRight") {
                             // TODO: - 참가 작품
+                            AppState.shared.navigationPath.append(ContestOutlineViewType.gallery)
+                        }
+                        .navigationDestination(for: ContestOutlineViewType.self) { viewType in
+                            switch viewType {
+                            case .gallery:
+                                GalleryView()
+                            }
                         }
                         Text("참가작품")
                     }
@@ -63,6 +70,8 @@ struct ContestOutlineView: View {
                 Spacer()
             }
         }
+        .toolbar(.hidden)
+      
     }
 
     private var titleView: some View {
@@ -209,6 +218,10 @@ struct ContestModeSegmentedControl: View {
         }
         .padding(.horizontal, 32)
     }
+}
+
+enum ContestOutlineViewType {
+    case gallery
 }
 
 #Preview {

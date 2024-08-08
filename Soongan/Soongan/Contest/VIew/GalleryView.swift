@@ -103,6 +103,7 @@ struct GalleryView: View {
                     PhotoDetailView()
                 }
             }
+            .toolbar(.hidden)
         }
     }
 }
