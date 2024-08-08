@@ -10,6 +10,8 @@ import SwiftUI
 struct PhotoDetailView: View {
     // 사진 전체화면 클릭 
     @State private var isImageLarge = false
+    @State private var isCommentModalShowed = false
+
     @StateObject var appState = AppState.shared
     var body: some View {
         VStack(spacing: 0) {
@@ -58,6 +60,7 @@ struct PhotoDetailView: View {
                         }
                         .padding(.leading, 16)
                         Spacer()
+
                         // 좋아요 버튼
                         Button {
                             
@@ -90,7 +93,9 @@ struct PhotoDetailView: View {
                 
             }
         }
+
         .toolbar(.hidden)
+
     }
 }
 

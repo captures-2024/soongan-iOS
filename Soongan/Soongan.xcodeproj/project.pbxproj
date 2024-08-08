@@ -10,6 +10,7 @@
 		78015B24FCC95F44F8D5FEB6 /* Pods_Soongan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B8583738647EC1A6B656C3 /* Pods_Soongan.framework */; };
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
+		AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
 		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
@@ -38,6 +39,12 @@
 		BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BC22C061ABA00A9A10E /* EndPoint.swift */; };
 		BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BCD2C061C0000A9A10E /* Data+.swift */; };
 		BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB73BD82C06F43F00A9A10E /* AppState.swift */; };
+		BFE3EC9F2C58A54900A9D4BB /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE3EC9E2C58A54900A9D4BB /* AuthError.swift */; };
+		BFE3ECA12C58A5B100A9D4BB /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE3ECA02C58A5B100A9D4BB /* KeyChainManager.swift */; };
+		BFE3ECA42C58B1DA00A9D4BB /* AuthDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE3ECA32C58B1DA00A9D4BB /* AuthDTO.swift */; };
+		BFE5DE8C2C58B62F0018564C /* AuthEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5DE8B2C58B62F0018564C /* AuthEndPoint.swift */; };
+		BFE5DE8E2C58B63A0018564C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5DE8D2C58B63A0018564C /* AuthService.swift */; };
+		BFE5DE902C58B6790018564C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5DE8F2C58B6790018564C /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,7 @@
 		815BD1A8BD65CBFBE5463BAF /* Pods-Soongan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soongan.release.xcconfig"; path = "Target Support Files/Pods-Soongan/Pods-Soongan.release.xcconfig"; sourceTree = "<group>"; };
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
@@ -76,6 +84,13 @@
 		BFB73BC22C061ABA00A9A10E /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BFB73BCD2C061C0000A9A10E /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		BFB73BD82C06F43F00A9A10E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		BFD7A1552C5763C100E74D68 /* Soongan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soongan.entitlements; sourceTree = "<group>"; };
+		BFE3EC9E2C58A54900A9D4BB /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		BFE3ECA02C58A5B100A9D4BB /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
+		BFE3ECA32C58B1DA00A9D4BB /* AuthDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDTO.swift; sourceTree = "<group>"; };
+		BFE5DE8B2C58B62F0018564C /* AuthEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoint.swift; sourceTree = "<group>"; };
+		BFE5DE8D2C58B63A0018564C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		BFE5DE8F2C58B6790018564C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +145,7 @@
 				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
 				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
 				AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */,
+				AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -190,6 +206,7 @@
 		BF607F1B2BF5BFAF00770CE7 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				BFE3ECA22C58B1A900A9D4BB /* Model */,
 				BFB73BD62C06F3BF00A9A10E /* View */,
 			);
 			path = SignUp;
@@ -216,6 +233,7 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				BFD7A1552C5763C100E74D68 /* Soongan.entitlements */,
 				BF5233572C2038B300BA5683 /* Component */,
 				BF5233502C20333100BA5683 /* Auth */,
 				BFB73BD72C06F43100A9A10E /* App */,
@@ -244,6 +262,7 @@
 		BF73034B2BF4AB5E00A482B3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BFE3EC9D2C58A53900A9D4BB /* Errors */,
 				BF73034C2BF4AB6300A482B3 /* Util */,
 			);
 			path = Common;
@@ -253,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				BF73034D2BF4AB6D00A482B3 /* Constants.swift */,
+				BFE3ECA02C58A5B100A9D4BB /* KeyChainManager.swift */,
+				BFE5DE8F2C58B6790018564C /* Secrets.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -272,6 +293,7 @@
 		BFB73BBC2C061A5E00A9A10E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BFE5DE8A2C58B6230018564C /* Auth */,
 				BFB73BBD2C061A7100A9A10E /* Base */,
 			);
 			path = Network;
@@ -306,6 +328,31 @@
 				BFB73BD82C06F43F00A9A10E /* AppState.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		BFE3EC9D2C58A53900A9D4BB /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				BFE3EC9E2C58A54900A9D4BB /* AuthError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		BFE3ECA22C58B1A900A9D4BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFE3ECA32C58B1DA00A9D4BB /* AuthDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFE5DE8A2C58B6230018564C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BFE5DE8B2C58B62F0018564C /* AuthEndPoint.swift */,
+				BFE5DE8D2C58B63A0018564C /* AuthService.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE5DE8C2C58B62F0018564C /* AuthEndPoint.swift in Sources */,
 				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */,
@@ -429,7 +477,9 @@
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
 				AB8D1E0F2C3A7A6F00D333AC /* ExhibitedImageCell.swift in Sources */,
+				AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */,
 				BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */,
+				BFE3ECA42C58B1DA00A9D4BB /* AuthDTO.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
@@ -441,10 +491,14 @@
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
 				BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */,
+				BFE3ECA12C58A5B100A9D4BB /* KeyChainManager.swift in Sources */,
 				AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */,
+				BFE3EC9F2C58A54900A9D4BB /* AuthError.swift in Sources */,
 				BF52334F2C20332000BA5683 /* UserData.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
+				BFE5DE902C58B6790018564C /* Secrets.swift in Sources */,
+				BFE5DE8E2C58B63A0018564C /* AuthService.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,
 				BFB73BC52C061ABA00A9A10E /* BaseResponse.swift in Sources */,
 				ABA7F3BD2C31B51200CEB943 /* Bundle+.swift in Sources */,
@@ -581,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soongan/Soongan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
@@ -615,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soongan/Soongan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
