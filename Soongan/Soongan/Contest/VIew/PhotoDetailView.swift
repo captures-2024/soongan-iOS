@@ -15,6 +15,7 @@ struct PhotoDetailView: View {
     @State private var selectedReportView = ReportViewType.none
 
     @StateObject var appState = AppState.shared
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottom) {
@@ -22,7 +23,7 @@ struct PhotoDetailView: View {
                     .resizable()
                     .frame(width: Constants.screenWidth)
                     .ignoresSafeArea(.all)
-                
+
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         CapturesNavigationBar()
@@ -30,7 +31,7 @@ struct PhotoDetailView: View {
                     }
                     .padding(.top, 68)
                     .padding(.bottom, 71)
-                    
+
                     ScrollView {
                         Image("background")
                             .resizable()
@@ -46,15 +47,15 @@ struct PhotoDetailView: View {
                                 .padding(.leading, 36)
                             Spacer()
                         }
-                      
+
                     }
                 }
-                
+
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         // 정보 더보기 버튼
                         Button {
-                            
+
                         } label: {
                             Image("plusInfoButton")
                                 .renderingMode(.template)
@@ -65,18 +66,20 @@ struct PhotoDetailView: View {
 
                         // 좋아요 버튼
                         Button {
-                            
+
                         } label: {
                             Image("icHeart")
                                 .renderingMode(.template)
                                 .foregroundStyle(Color.black)
                         }
                         .padding(.trailing, 8)
+
                         Text("1.2m")
                             .padding(.trailing, 31)
+
                         // 댓글 버튼
                         Button {
-                            
+                            isCommentSheetOpened.toggle()
                         } label: {
                             Image("icComment")
                                 .renderingMode(.template)
@@ -85,50 +88,49 @@ struct PhotoDetailView: View {
                         .padding(.trailing, 8)
                         Text("1.2m")
                             .padding(.trailing, 31)
-                        
+
                     }
-                    
+
                 }
                 .frame(width: Constants.screenWidth, height: 63)
                 .background(.white)
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
-                
+
+                if isCommentBottomSheetOpened {
+                    modalBlackView
+                        .onTapGesture {
+                            isCommentBottomSheetOpened = false
+                        }
+                }
+
+                if selectedReportView != .none {
+                    modalBlackView
+                        .onTapGesture {
+                            selectedReportView = .none
+                            isCommentSheetOpened = true
+                        }
+                }
+
+                reportModalView
+
             }
-
-            if isCommentBottomSheetOpened {
-                modalBlackView
-                    .onTapGesture {
-                        isCommentBottomSheetOpened = false
-                    }
+            .toolbar(.hidden)
+            .sheet(
+                isPresented: $isCommentSheetOpened,
+                onDismiss: { isCommentBottomSheetOpened = false }
+            ) {
+                CommentView(
+                    isCommentSheetOpened: $isCommentSheetOpened,
+                    isCommentBottomSheetOpened: $isCommentBottomSheetOpened,
+                    selectedReportViewType: $selectedReportView
+                )
+                .presentationDetents([.height(600)])
             }
-
-            if selectedReportView != .none {
-                modalBlackView
-                    .onTapGesture {
-                        selectedReportView = .none
-                        isCommentSheetOpened = true
-                    }
-            }
-
-            reportModalView
-
-        }
-        .toolbar(.hidden)
-        .sheet(
-            isPresented: $isCommentSheetOpened,
-            onDismiss: { isCommentBottomSheetOpened = false }
-        ) {
-            CommentView(
-                isCommentSheetOpened: $isCommentSheetOpened,
-                isCommentBottomSheetOpened: $isCommentBottomSheetOpened,
-                selectedReportViewType: $selectedReportView
-            )
-            .presentationDetents([.height(600)])
-        }
-        .onChange(of: selectedReportView) { newValue in
-            if newValue == .completed {
-                isCommentSheetOpened = true
-                selectedReportView = .none
+            .onChange(of: selectedReportView) { newValue in
+                if newValue == .completed {
+                    isCommentSheetOpened = true
+                    selectedReportView = .none
+                }
             }
         }
     }
@@ -154,12 +156,13 @@ struct PhotoDetailView: View {
 
                 case .reportCompleted:
                     ReportCompletedView(selectedReportView: $selectedReportView)
-                    
+
                 case .none, .completed:
                     EmptyView()
                 }
             }
         }
+        .ignoresSafeArea()
     }
 }
 
