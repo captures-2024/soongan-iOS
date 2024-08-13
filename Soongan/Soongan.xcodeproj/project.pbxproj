@@ -11,6 +11,14 @@
 		AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E792BF6195B00A163E8 /* SignUpView.swift */; };
 		AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */; };
 		AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */; };
+		AB23BEF62C61E4D800E12702 /* CommentPlusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEF52C61E4D800E12702 /* CommentPlusBottomView.swift */; };
+		AB23BEFC2C61F7F800E12702 /* ReportCasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */; };
+		AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFD2C61FEA700E12702 /* BlackButton.swift */; };
+		AB23BF002C62001700E12702 /* SubmitReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BEFF2C62001700E12702 /* SubmitReportView.swift */; };
+		AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */; };
+		AB23BF062C633DBE00E12702 /* ModalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF052C633DBE00E12702 /* ModalHandler.swift */; };
+		AB23BF082C63626000E12702 /* ReportModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23BF072C63626000E12702 /* ReportModalView.swift */; };
+		AB3F154B2C61E1EE00C77E13 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */; };
 		AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */; };
 		AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB242C246D1C0070420B /* MainTabView.swift */; };
 		AB58AB272C246D280070420B /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58AB262C246D280070420B /* MainTabType.swift */; };
@@ -54,6 +62,14 @@
 		AB003E792BF6195B00A163E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		AB003E7E2BF6EF1600A163E8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		AB23BEF52C61E4D800E12702 /* CommentPlusBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPlusBottomView.swift; sourceTree = "<group>"; };
+		AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCasesView.swift; sourceTree = "<group>"; };
+		AB23BEFD2C61FEA700E12702 /* BlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackButton.swift; sourceTree = "<group>"; };
+		AB23BEFF2C62001700E12702 /* SubmitReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitReportView.swift; sourceTree = "<group>"; };
+		AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCompletedView.swift; sourceTree = "<group>"; };
+		AB23BF052C633DBE00E12702 /* ModalHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHandler.swift; sourceTree = "<group>"; };
+		AB23BF072C63626000E12702 /* ReportModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModalView.swift; sourceTree = "<group>"; };
+		AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		AB4D63EF2C2A99E700E35084 /* ContestOutlineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineViewModel.swift; sourceTree = "<group>"; };
 		AB58AB242C246D1C0070420B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB58AB262C246D280070420B /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
@@ -138,6 +154,43 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AB23BEF72C61F79500E12702 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				AB23BEF82C61F7C100E12702 /* View */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		AB23BEF82C61F7C100E12702 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB23BF072C63626000E12702 /* ReportModalView.swift */,
+				AB23BEFB2C61F7F800E12702 /* ReportCasesView.swift */,
+				AB23BEFF2C62001700E12702 /* SubmitReportView.swift */,
+				AB23BF012C622A7E00E12702 /* ReportCompletedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB3F15482C61E1C200C77E13 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				AB3F15492C61E1CB00C77E13 /* View */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		AB3F15492C61E1CB00C77E13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */,
+				AB3F154A2C61E1EE00C77E13 /* CommentCell.swift */,
+				AB23BEF52C61E4D800E12702 /* CommentPlusBottomView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AB4D63EC2C2A99B800E35084 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +198,6 @@
 				AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */,
 				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
 				AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */,
-				AB22AD2B2C4E6C8E00C9A0F3 /* CommentView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -198,6 +250,8 @@
 			children = (
 				BF5233582C2038B300BA5683 /* CapturesNavigationBar.swift */,
 				ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */,
+				AB23BEFD2C61FEA700E12702 /* BlackButton.swift */,
+				AB23BF052C633DBE00E12702 /* ModalHandler.swift */,
 			);
 			name = Component;
 			path = Soongan/Component;
@@ -242,6 +296,8 @@
 				AB003E7B2BF6EEF700A163E8 /* SignUpInput */,
 				AB58AB232C246D070070420B /* MainTab */,
 				AB804DDA2C15817D004C4011 /* Contest */,
+				AB3F15482C61E1C200C77E13 /* Comment */,
+				AB23BEF72C61F79500E12702 /* Report */,
 				BF73034F2BF4AD1F00A482B3 /* Extension */,
 				BF73034B2BF4AB5E00A482B3 /* Common */,
 				BF73033D2BF4A2CB00A482B3 /* SoonganApp.swift */,
@@ -469,10 +525,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB23BEFC2C61F7F800E12702 /* ReportCasesView.swift in Sources */,
 				BFE5DE8C2C58B62F0018564C /* AuthEndPoint.swift in Sources */,
 				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */,
+				AB23BF082C63626000E12702 /* ReportModalView.swift in Sources */,
 				BF7303402BF4A2CB00A482B3 /* SignUpMainView.swift in Sources */,
 				BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */,
 				BF5233592C2038B300BA5683 /* CapturesNavigationBar.swift in Sources */,
@@ -480,22 +538,28 @@
 				AB22AD2C2C4E6C8E00C9A0F3 /* CommentView.swift in Sources */,
 				BF5233562C20388300BA5683 /* PhotoDetailView.swift in Sources */,
 				BFE3ECA42C58B1DA00A9D4BB /* AuthDTO.swift in Sources */,
+				AB23BF002C62001700E12702 /* SubmitReportView.swift in Sources */,
 				BF7303512BF4AD2900A482B3 /* Color+.swift in Sources */,
+				AB23BEF62C61E4D800E12702 /* CommentPlusBottomView.swift in Sources */,
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
 				AB58AB272C246D280070420B /* MainTabType.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
 				AB003E7A2BF6195B00A163E8 /* SignUpView.swift in Sources */,
+				AB23BF062C633DBE00E12702 /* ModalHandler.swift in Sources */,
 				AB58AB252C246D1C0070420B /* MainTabView.swift in Sources */,
 				BF607F1F2BF5C5EF00770CE7 /* SignUpFinishView.swift in Sources */,
 				BF7303532BF4B3C500A482B3 /* Text+.swift in Sources */,
+				AB23BF022C622A7E00E12702 /* ReportCompletedView.swift in Sources */,
 				BFB73BCE2C061C0000A9A10E /* Data+.swift in Sources */,
 				BFE3ECA12C58A5B100A9D4BB /* KeyChainManager.swift in Sources */,
+				AB3F154B2C61E1EE00C77E13 /* CommentCell.swift in Sources */,
 				AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */,
 				BFE3EC9F2C58A54900A9D4BB /* AuthError.swift in Sources */,
 				BF52334F2C20332000BA5683 /* UserData.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
+				AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */,
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFE5DE902C58B6790018564C /* Secrets.swift in Sources */,
 				BFE5DE8E2C58B63A0018564C /* AuthService.swift in Sources */,
