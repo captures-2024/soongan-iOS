@@ -14,22 +14,29 @@ enum ValidationCheck {
 
 class SignUpViewModel: ObservableObject {
 
+    struct State {
+        var isNextButtonEnabled = false
+        var isNicknameValid = ValidationCheck.normal
+        var isYearValid = ValidationCheck.normal
+        var nicknameMessage = ""
+        var yearMessage = ""
+    }
+
     enum Action {
         case checkNickname
     }
 
+    @Published var state: State
     @Published var nickname = ""
     @Published var year = ""
-    @Published var nicknameMessage = ""
-    @Published var yearMessage = ""
-    @Published var isNextButtonEnabled = false
-    @Published var isNicknameValid = ValidationCheck.normal
-    @Published var isYearValid = ValidationCheck.normal
     @Published var isDuplicated: Bool?
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init() {
+    init(
+        state: State = .init()
+    ) {
+        self.state = state
         bind()
     }
 
@@ -38,7 +45,7 @@ class SignUpViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .dropFirst()
             .map { _ in "3-10자리 숫자, 영문, 한글로 기입해주세요" }
-            .assign(to: \.nicknameMessage, on: self)
+            .assign(to: \.state.nicknameMessage, on: self)
             .store(in: &cancellables)
 
         $nickname
@@ -47,10 +54,10 @@ class SignUpViewModel: ObservableObject {
                 return nickname.count >= 3 && nickname.count <= 10 ? .lengthValid : .normal
             }
             .handleEvents(receiveOutput: { [weak self] validation in
-                self?.isNicknameValid = validation
+                self?.state.isNicknameValid = validation
             })
             .map { $0 == .lengthValid }
-            .assign(to: \.isNextButtonEnabled, on: self)
+            .assign(to: \.state.isNextButtonEnabled, on: self)
             .store(in: &cancellables)
 
         $isDuplicated
@@ -60,11 +67,11 @@ class SignUpViewModel: ObservableObject {
                  guard let self = self else { return }
 
                  if isDuplicated {
-                     nicknameMessage = "아이디가 중복되었습니다."
-                     isNextButtonEnabled = false
-                     isNicknameValid = .invalid
+                     state.nicknameMessage = "아이디가 중복되었습니다."
+                     state.isNextButtonEnabled = false
+                     state.isNicknameValid = .invalid
                  } else {
-                     isNicknameValid = .valid
+                     state.isNicknameValid = .valid
                  }
              }
              .store(in: &cancellables)
@@ -75,10 +82,10 @@ class SignUpViewModel: ObservableObject {
                 return validateYear(year)
             }
             .map { validation in
-                self.isYearValid = validation
+                self.state.isYearValid = validation
                 return self.yearValidationMessage(for: validation)
             }
-            .assign(to: \.yearMessage, on: self)
+            .assign(to: \.state.yearMessage, on: self)
             .store(in: &cancellables)
 
     }
@@ -88,21 +95,17 @@ class SignUpViewModel: ObservableObject {
         switch action {
         case .checkNickname:
             if containsSpecialCharacters(nickname) {
-                nicknameMessage = "특수문자는 제거해주세요"
-                isNextButtonEnabled = false
-                isNicknameValid = .invalid
+                state.nicknameMessage = "특수문자는 제거해주세요"
+                state.isNextButtonEnabled = false
+                state.isNicknameValid = .invalid
                 return
             }
 
-            // TODO: 수정
-            isDuplicated = false
-            isNicknameValid = .valid
+            guard let response = await UserService.checkNicknameValidation(parameter: nickname) else {
+                return
+            }
 
-//            guard let response = await UserService.checkNicknameValidation(parameter: nickname) else {
-//                return
-//            }
-//
-//            isDuplicated = response.data ?? false
+            isDuplicated = response.data ?? false
         }
     }
 

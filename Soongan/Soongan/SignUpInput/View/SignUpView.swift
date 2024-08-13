@@ -34,7 +34,7 @@ struct SignUpView: View {
 
                 Spacer()
 
-                if viewModel.isNicknameValid != .valid  {
+                if viewModel.state.isNicknameValid != .valid  {
                     nicknameTextField
                     Spacer()
                     nextButton
@@ -62,11 +62,14 @@ struct SignUpView: View {
             SignUpTextFieldView(fieldName: "닉네임",
                                 placeholder: "사용자명을 입력해주세요.",
                                 text: $viewModel.nickname,
-                                validation: viewModel.isNicknameValid)
+                                validation: viewModel.state.isNicknameValid)
                 .focused($focusedField, equals: .nickname)
             HStack {
-                Text(viewModel.nicknameMessage)
-                    .foregroundStyle(viewModel.isNicknameValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
+                Text(viewModel.state.nicknameMessage)
+                    .foregroundStyle(
+                        viewModel.state.isNicknameValid == .invalid ?
+                        Color.negative : Color(hex: 0xCACACA)
+                    )
                 Spacer()
                 Text("\(viewModel.nickname.count)/10")
                     .foregroundStyle(Color(hex: 0xCACACA))
@@ -81,15 +84,18 @@ struct SignUpView: View {
             SignUpTextFieldView(fieldName: "출생연도",
                                 placeholder: "YYYY",
                                 text: $viewModel.year,
-                                validation: viewModel.isYearValid)
+                                validation: viewModel.state.isYearValid)
             .keyboardType(.numberPad)
             .focused($focusedField, equals: .year)
             HStack {
-                Text(viewModel.yearMessage)
+                Text(viewModel.state.yearMessage)
                 Spacer()
             }
             .font(.system(size: 12))
-            .foregroundStyle(viewModel.isYearValid == .invalid ? Color.negative : Color(hex: 0xCACACA))
+            .foregroundStyle(
+                viewModel.state.isYearValid == .invalid ?
+                Color.negative : Color(hex: 0xCACACA)
+            )
 
             .padding(.horizontal, 12)
         }
@@ -115,9 +121,7 @@ struct SignUpView: View {
             Task {
                 await viewModel.action(.checkNickname)
             }
-            // 닉네임 정보 저장
             AppState.shared.nickName = viewModel.nickname
-      
         }, label: {
             VStack(spacing: 12) {
                 Text("다음이 마지막 단계입니다!")
@@ -128,16 +132,18 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(viewModel.isNextButtonEnabled ? Color.positive : Color.gray300)
+                    .background(
+                        viewModel.state.isNextButtonEnabled ?
+                        Color.positive : Color.gray300
+                    )
                     .cornerRadius(8)
             }
         })
-        .disabled(!viewModel.isNextButtonEnabled)
+        .disabled(!viewModel.state.isNextButtonEnabled)
     }
 
     private var completeButton: some View {
         Button(action: {
-            // TODO: next view
             AppState.shared.navigationPath.append(SignUpViewType.final)
         }, label: {
             VStack(spacing: 12) {
@@ -149,11 +155,14 @@ struct SignUpView: View {
                     .foregroundStyle(Color.primaryB)
                     .frame(maxWidth: .infinity)
                     .frame(height: 48)
-                    .background(viewModel.isYearValid == .valid ? Color.positive : Color.gray300)
+                    .background(
+                        viewModel.state.isYearValid == .valid ?
+                        Color.positive : Color.gray300
+                    )
                     .cornerRadius(8)
             }
         })
-        .disabled(viewModel.isYearValid != .valid)
+        .disabled(viewModel.state.isYearValid != .valid)
         .navigationDestination(for: SignUpViewType.self) { viewType in
             switch viewType {
             case .final:
