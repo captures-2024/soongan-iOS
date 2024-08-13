@@ -29,23 +29,7 @@ class SignUpViewModel: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    var isYearValidPublisher: AnyPublisher<ValidationCheck, Never> {
-        $year
-            .map { year -> ValidationCheck in
-                if year.isEmpty {
-                    return .normal
-                } else if let year = Int(year), year >= 1950 && year <= 2009 {
-                    return .valid
-                } else {
-                    return .invalid
-                }
-            }
-            .eraseToAnyPublisher()
-    }
-
     init() {
-        setYearValidation()
-
         bind()
     }
 
@@ -85,6 +69,18 @@ class SignUpViewModel: ObservableObject {
              }
              .store(in: &cancellables)
 
+        $year
+            .map { [weak self] year -> ValidationCheck in
+                self?.validateYear(year) ?? .normal
+            }
+            .assign(to: \.isYearValid, on: self)
+            .store(in: &cancellables)
+
+        $isYearValid
+            .map { self.yearValidationMessage(for: $0) }
+            .assign(to: \.yearMessage, on: self)
+            .store(in: &cancellables)
+
     }
 
     @MainActor
@@ -110,30 +106,29 @@ class SignUpViewModel: ObservableObject {
         }
     }
 
-    private func setYearValidation() {
-        isYearValidPublisher
-            .receive(on: DispatchQueue.main)
-            .map { yearCheck -> String in
-                switch yearCheck {
-                case .invalid:
-                    return "1950-2009 이내의 기간을 입력해주세요."
-                default:
-                    return "출생연도 숫자 4자리를 기입해주세요."
-                }
-            }
-            .assign(to: \.yearMessage, on: self)
-            .store(in: &cancellables)
-
-        isYearValidPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.isYearValid, on: self)
-            .store(in: &cancellables)
-    }
-
     private func containsSpecialCharacters(_ text: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "[!@#$%^&*()\\-=+\\[\\]]", options: [])
         let range = NSRange(location: 0, length: text.utf16.count)
         return regex.firstMatch(in: text, options: [], range: range) != nil
+    }
+
+    private func validateYear(_ year: String) -> ValidationCheck {
+        if year.isEmpty {
+            return .normal
+        } else if let yearInt = Int(year), yearInt >= 1950 && yearInt <= 2009 {
+            return .valid
+        } else {
+            return .invalid
+        }
+    }
+
+    private func yearValidationMessage(for validation: ValidationCheck) -> String {
+        switch validation {
+        case .invalid:
+            return "1950-2009 이내의 기간을 입력해주세요."
+        default:
+            return "출생연도 숫자 4자리를 기입해주세요."
+        }
     }
 }
 
