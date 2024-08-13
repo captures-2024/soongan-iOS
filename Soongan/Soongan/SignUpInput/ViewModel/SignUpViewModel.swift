@@ -71,13 +71,13 @@ class SignUpViewModel: ObservableObject {
 
         $year
             .map { [weak self] year -> ValidationCheck in
-                self?.validateYear(year) ?? .normal
+                guard let self = self else { return .invalid }
+                return validateYear(year)
             }
-            .assign(to: \.isYearValid, on: self)
-            .store(in: &cancellables)
-
-        $isYearValid
-            .map { self.yearValidationMessage(for: $0) }
+            .map { validation in
+                self.isYearValid = validation
+                return self.yearValidationMessage(for: validation)
+            }
             .assign(to: \.yearMessage, on: self)
             .store(in: &cancellables)
 
