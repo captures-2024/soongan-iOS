@@ -13,14 +13,19 @@ enum ValidationCheck {
 }
 
 class SignUpViewModel: ObservableObject {
+
+    enum Action {
+        case checkNicknameDuplicated(_ nickname: String)
+    }
+
     @Published var nickname = ""
     @Published var year = ""
-
     @Published var nicknameMessage = ""
     @Published var yearMessage = ""
     @Published var isNextButtonEnabled = false
     @Published var isNicknameValid = ValidationCheck.normal
     @Published var isYearValid = ValidationCheck.normal
+    @Published var isDuplicated = false
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -49,6 +54,18 @@ class SignUpViewModel: ObservableObject {
     init() {
         setNicknameValidation()
         setYearValidation()
+    }
+
+    func action(_ action: Action) async {
+        switch action {
+
+        case let .checkNicknameDuplicated(nickname):
+            guard let response = await UserService.checkNicknameValidation(parameter: nickname) else {
+                return
+            }
+
+            isDuplicated = response.data ?? false
+        }
     }
 
     private func setNicknameValidation() {
@@ -97,7 +114,7 @@ class SignUpViewModel: ObservableObject {
         }
 
         // 중복 체크 api
-        if isDuplicated(nickname) {
+        if isDuplicated {
             nicknameMessage = "아이디가 중복되었습니다."
             isNextButtonEnabled = false
             isNicknameValid = .invalid
@@ -111,10 +128,6 @@ class SignUpViewModel: ObservableObject {
         let regex = try! NSRegularExpression(pattern: "[!@#$%^&*()\\-=+\\[\\]]", options: [])
         let range = NSRange(location: 0, length: text.utf16.count)
         return regex.firstMatch(in: text, options: [], range: range) != nil
-    }
-
-    private func isDuplicated(_ nickname: String) -> Bool {
-        return false
     }
 }
 
