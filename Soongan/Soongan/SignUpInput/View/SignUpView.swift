@@ -112,7 +112,9 @@ struct SignUpView: View {
     private var nextButton: some View {
         Button(action: {
             focusedField = .year
-            viewModel.checkNickname()
+            Task {
+                await viewModel.action(.checkNickname)
+            }
             // 닉네임 정보 저장
             AppState.shared.nickName = viewModel.nickname
       

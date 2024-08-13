@@ -26,7 +26,8 @@ struct SoonganApp: App {
 //                        _ = AuthController.handleOpenUrl(url: url)
 //                    }
 //                }
-            ContestOutlineView()
+            SignUpView()
+//            ContestOutlineView()
         }
     }
 }

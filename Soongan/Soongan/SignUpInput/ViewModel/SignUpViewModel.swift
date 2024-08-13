@@ -15,7 +15,7 @@ enum ValidationCheck {
 class SignUpViewModel: ObservableObject {
 
     enum Action {
-        case checkNicknameDuplicated(_ nickname: String)
+        case checkNickname
     }
 
     @Published var nickname = ""
@@ -25,17 +25,9 @@ class SignUpViewModel: ObservableObject {
     @Published var isNextButtonEnabled = false
     @Published var isNicknameValid = ValidationCheck.normal
     @Published var isYearValid = ValidationCheck.normal
-    @Published var isDuplicated = false
+    @Published var isDuplicated: Bool?
 
     private var cancellables: Set<AnyCancellable> = []
-
-    var isNicknameLengthValidPublisher: AnyPublisher<ValidationCheck, Never> {
-        $nickname
-            .map { nickname -> ValidationCheck in
-                return nickname.count >= 3 && nickname.count <= 10 ? .lengthValid : .normal
-            }
-            .eraseToAnyPublisher()
-    }
 
     var isYearValidPublisher: AnyPublisher<ValidationCheck, Never> {
         $year
@@ -52,37 +44,70 @@ class SignUpViewModel: ObservableObject {
     }
 
     init() {
-        setNicknameValidation()
         setYearValidation()
+
+        bind()
     }
 
-    func action(_ action: Action) async {
-        switch action {
-
-        case let .checkNicknameDuplicated(nickname):
-            guard let response = await UserService.checkNicknameValidation(parameter: nickname) else {
-                return
-            }
-
-            isDuplicated = response.data ?? false
-        }
-    }
-
-    private func setNicknameValidation() {
+    private func bind() {
         $nickname
+            .receive(on: DispatchQueue.main)
             .dropFirst()
             .map { _ in "3-10자리 숫자, 영문, 한글로 기입해주세요" }
             .assign(to: \.nicknameMessage, on: self)
             .store(in: &cancellables)
 
-        isNicknameLengthValidPublisher
+        $nickname
             .receive(on: DispatchQueue.main)
+            .map { nickname -> ValidationCheck in
+                return nickname.count >= 3 && nickname.count <= 10 ? .lengthValid : .normal
+            }
             .handleEvents(receiveOutput: { [weak self] validation in
                 self?.isNicknameValid = validation
             })
             .map { $0 == .lengthValid }
             .assign(to: \.isNextButtonEnabled, on: self)
             .store(in: &cancellables)
+
+        $isDuplicated
+             .receive(on: DispatchQueue.main)
+             .compactMap { $0 }
+             .sink { [weak self] isDuplicated in
+                 guard let self = self else { return }
+
+                 if isDuplicated {
+                     nicknameMessage = "아이디가 중복되었습니다."
+                     isNextButtonEnabled = false
+                     isNicknameValid = .invalid
+                 } else {
+                     isNicknameValid = .valid
+                 }
+             }
+             .store(in: &cancellables)
+
+    }
+
+    @MainActor
+    func action(_ action: Action) async {
+        switch action {
+        case .checkNickname:
+            if containsSpecialCharacters(nickname) {
+                nicknameMessage = "특수문자는 제거해주세요"
+                isNextButtonEnabled = false
+                isNicknameValid = .invalid
+                return
+            }
+
+            // TODO: 수정
+            isDuplicated = false
+            isNicknameValid = .valid
+
+//            guard let response = await UserService.checkNicknameValidation(parameter: nickname) else {
+//                return
+//            }
+//
+//            isDuplicated = response.data ?? false
+        }
     }
 
     private func setYearValidation() {
@@ -103,25 +128,6 @@ class SignUpViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .assign(to: \.isYearValid, on: self)
             .store(in: &cancellables)
-    }
-
-    func checkNickname() {
-        if containsSpecialCharacters(nickname) {
-            nicknameMessage = "특수문자는 제거해주세요"
-            isNextButtonEnabled = false
-            isNicknameValid = .invalid
-            return
-        }
-
-        // 중복 체크 api
-        if isDuplicated {
-            nicknameMessage = "아이디가 중복되었습니다."
-            isNextButtonEnabled = false
-            isNicknameValid = .invalid
-            return
-        }
-
-        isNicknameValid = .valid
     }
 
     private func containsSpecialCharacters(_ text: String) -> Bool {
