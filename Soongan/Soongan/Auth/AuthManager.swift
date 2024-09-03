@@ -121,7 +121,7 @@ extension AuthManager: ASAuthorizationControllerDelegate, ASAuthorizationControl
             let loginRequest = LoginRequest(
                 provider: "APPLE",
                 idToken: idTokenString,
-                fcmToken: "abc") // TODO: fcm token 수정
+                fcmToken: "") // TODO: fcm token 수정
             Task {
                 await self.loginToServer(request: loginRequest, userAgent: "IOS")
                 
