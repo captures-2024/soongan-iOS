@@ -20,14 +20,12 @@ struct SoonganApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            SignUpMainView(userData: UserData(name: "", email: ""))
-//                .onOpenURL { url in
-//                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
-//                        _ = AuthController.handleOpenUrl(url: url)
-//                    }
-//                }
-            SignUpView()
-//            ContestOutlineView()
+            SignUpMainView(userData: UserData(name: "", email: ""))
+                .onOpenURL { url in
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                }
         }
     }
 }
