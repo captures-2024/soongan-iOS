@@ -10,6 +10,7 @@ import Foundation
 struct LoginRequest: Codable {
     let provider: String
     let idToken: String
+    let fcmToken: String
 }
 // 로그인 요청 response 
 struct LoginRegisterResponse: Codable {
