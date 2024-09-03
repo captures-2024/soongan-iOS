@@ -38,28 +38,39 @@ final class AuthManager: NSObject {
     @MainActor
     func kakaoLogin() {
         if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+            UserApi.shared.loginWithKakaoTalk { [weak self] oauthToken, error in
                 if let error = error {
                     print(error)
                 } else {
-                    print("oauthToken:", oauthToken)
-
-                    AppState.shared.navigationPath.append(MainViewType.kakao)
+                    guard let idToken = oauthToken?.idToken else { return }
+                    self?.loginWithKakao(kakaoIdToken: idToken)
                 }
             }
         } else {
-            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+            UserApi.shared.loginWithKakaoAccount { [weak self] oauthToken, error in
                 if let error = error {
                     print(error)
                 } else {
-                    print("oauthToken:", oauthToken)
+                    guard let idToken = oauthToken?.idToken else { return }
+                    self?.loginWithKakao(kakaoIdToken: idToken)
                 }
-
-                AppState.shared.navigationPath.append(MainViewType.kakao)
             }
         }
     }
-    
+
+    @MainActor
+    private func loginWithKakao(kakaoIdToken: String) {
+        let loginRequest = LoginRequest(
+            provider: "KAKAO",
+            idToken: kakaoIdToken,
+            fcmToken: "") // TODO: fcm token 수정
+
+        Task {
+            await self.loginToServer(request: loginRequest, userAgent: "IOS")
+            AppState.shared.navigationPath.append(MainViewType.kakao)
+        }
+    }
+
     // 애플 로그인
     @MainActor
     func appleLogin() {
@@ -107,7 +118,10 @@ extension AuthManager: ASAuthorizationControllerDelegate, ASAuthorizationControl
         
         if let authorizationCode = String(data: appleIdCredential.authorizationCode ?? Data(), encoding: .utf8) {
             KeyChainManager.addItem(key: "appleIdtoken", value: idTokenString)
-            let loginRequest = LoginRequest(provider: "APPLE", idToken: idTokenString)
+            let loginRequest = LoginRequest(
+                provider: "APPLE",
+                idToken: idTokenString,
+                fcmToken: "abc") // TODO: fcm token 수정
             Task {
                 await self.loginToServer(request: loginRequest, userAgent: "IOS")
                 
