@@ -8,6 +8,8 @@
 import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct SignUpMainView: View {
     @StateObject var appState = AppState.shared

@@ -191,7 +191,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AB4D63EC2C2A99B800E35084 /* VIew */ = {
+		AB4D63EC2C2A99B800E35084 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				BF5233532C20380100BA5683 /* GalleryView.swift */,
@@ -199,7 +199,7 @@
 				BF5233552C20388300BA5683 /* PhotoDetailView.swift */,
 				AB8D1E0E2C3A7A6F00D333AC /* ExhibitedImageCell.swift */,
 			);
-			path = VIew;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AB4D63ED2C2A99BC00E35084 /* ViewModel */ = {
@@ -222,7 +222,7 @@
 		AB804DDA2C15817D004C4011 /* Contest */ = {
 			isa = PBXGroup;
 			children = (
-				AB4D63EC2C2A99B800E35084 /* VIew */,
+				AB4D63EC2C2A99B800E35084 /* View */,
 				AB4D63ED2C2A99BC00E35084 /* ViewModel */,
 			);
 			path = Contest;
