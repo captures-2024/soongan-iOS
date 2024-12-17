@@ -12,7 +12,7 @@ struct LoginRequest: Codable {
     let idToken: String
     let fcmToken: String
 }
-// 로그인 요청 response 
+// 로그인 요청 response
 struct LoginRegisterResponse: Codable {
     let accessToken: String
     let refreshToken: String

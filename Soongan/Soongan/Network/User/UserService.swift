@@ -14,6 +14,11 @@ struct UserService {
         return await NetworkManager.shared.request(UserEndPoint.checkNicknameValidation(parameter: parameter))
     }
 }
+//struct AuthService {
+//    static func loginServer(body: LoginRequest, userAgent: String) async -> Result<BaseResponse<LoginRegisterResponse>, Error> {
+//        return await NetworkManager.shared.request(AuthEndPoint.login(body: body, userAgent: userAgent))
+//    }
+//}
 
 //struct AuthService {
 //    static func loginServer(body: LoginRequest, userAgent: String) async -> BaseResponse<LoginRegisterResponse>? {

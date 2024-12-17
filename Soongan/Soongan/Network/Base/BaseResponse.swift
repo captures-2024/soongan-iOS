@@ -18,20 +18,20 @@ struct OldBaseResponse<T: Codable>: Codable {
 }
 
 struct BaseResponse<T: Codable>: Codable {
-	let status: Int
+	let statusCode: Int
 	let message: String
-	let data: T?
+	let responseData: T?
 
 	enum CodingKeys: String, CodingKey {
-		case status
+		case statusCode
 		case message
-		case data
+		case responseData
 	}
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
-		status = try container.decode(Int.self, forKey: .status)
+        statusCode = try container.decode(Int.self, forKey: .statusCode)
 		message = try container.decode(String.self, forKey: .message)
-		data = try container.decodeIfPresent(T.self, forKey: .data)
+        responseData = try container.decodeIfPresent(T.self, forKey: .responseData)
 	}
 }

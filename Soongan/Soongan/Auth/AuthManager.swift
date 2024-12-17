@@ -64,7 +64,7 @@ final class AuthManager: NSObject {
             provider: "KAKAO",
             idToken: kakaoIdToken,
             fcmToken: "") // TODO: fcm token 수정
-
+        
         Task {
             await self.loginToServer(request: loginRequest, userAgent: "IOS")
             AppState.shared.navigationPath.append(MainViewType.kakao)
@@ -87,10 +87,10 @@ final class AuthManager: NSObject {
     func loginToServer(request: LoginRequest, userAgent: String) async {
         let result = await AuthService.loginServer(body: request, userAgent: userAgent)
         
-        if let tokens = result?.data {
+        if let tokens = result?.responseData {
             print("accessToken: \(tokens.accessToken)")
             print("refreshToken: \(tokens.refreshToken)")
-        } else if result?.status == 404 {
+        } else if result?.statusCode == 404 {
             // 로그인 실패(404)인 경우 회원가입 필요
             print("회원가입 필요")
         }

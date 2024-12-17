@@ -28,6 +28,10 @@
 		AB9A2CEC2C1EEC82001ECBA4 /* ContestOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */; };
 		ABA7F3BD2C31B51200CEB943 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA7F3BC2C31B51200CEB943 /* Bundle+.swift */; };
 		ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */; };
+		AF33710E2D1110D300CC69B9 /* FCMEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF33710D2D1110D300CC69B9 /* FCMEndPoint.swift */; };
+		AF3371102D1110DD00CC69B9 /* FCMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF33710F2D1110DD00CC69B9 /* FCMService.swift */; };
+		AF3371122D11147400CC69B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF3371112D11147400CC69B9 /* GoogleService-Info.plist */; };
+		AF3371142D11157800CC69B9 /* FCMDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3371132D11157800CC69B9 /* FCMDTO.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
 		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
@@ -81,6 +85,10 @@
 		AB9A2CEB2C1EEC82001ECBA4 /* ContestOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestOutlineView.swift; sourceTree = "<group>"; };
 		ABA7F3BC2C31B51200CEB943 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		ABB0F4402C27EC0F003C56A5 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		AF33710D2D1110D300CC69B9 /* FCMEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMEndPoint.swift; sourceTree = "<group>"; };
+		AF33710F2D1110DD00CC69B9 /* FCMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMService.swift; sourceTree = "<group>"; };
+		AF3371112D11147400CC69B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF3371132D11157800CC69B9 /* FCMDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMDTO.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -241,6 +249,16 @@
 			path = Contest;
 			sourceTree = "<group>";
 		};
+		AF33710A2D11109900CC69B9 /* FCM */ = {
+			isa = PBXGroup;
+			children = (
+				AF33710D2D1110D300CC69B9 /* FCMEndPoint.swift */,
+				AF33710F2D1110DD00CC69B9 /* FCMService.swift */,
+				AF3371132D11157800CC69B9 /* FCMDTO.swift */,
+			);
+			path = FCM;
+			sourceTree = "<group>";
+		};
 		BBDDFD715AFF477B2FB552AD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +318,7 @@
 		BF73033C2BF4A2CB00A482B3 /* Soongan */ = {
 			isa = PBXGroup;
 			children = (
+				AF3371112D11147400CC69B9 /* GoogleService-Info.plist */,
 				BFD7A1552C5763C100E74D68 /* Soongan.entitlements */,
 				BF5233572C2038B300BA5683 /* Component */,
 				BF5233502C20333100BA5683 /* Auth */,
@@ -362,6 +381,7 @@
 		BFB73BBC2C061A5E00A9A10E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AF33710A2D11109900CC69B9 /* FCM */,
 				BFE5DE8A2C58B6230018564C /* Auth */,
 				AB0C0F6E2C5C8DA7007812C5 /* User */,
 				BFB73BBD2C061A7100A9A10E /* Base */,
@@ -486,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7303452BF4A2CB00A482B3 /* Preview Assets.xcassets in Resources */,
+				AF3371122D11147400CC69B9 /* GoogleService-Info.plist in Resources */,
 				BF7303422BF4A2CB00A482B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +562,7 @@
 			files = (
 				AB23BEFC2C61F7F800E12702 /* ReportCasesView.swift in Sources */,
 				BFE5DE8C2C58B62F0018564C /* AuthEndPoint.swift in Sources */,
+				AF3371102D1110DD00CC69B9 /* FCMService.swift in Sources */,
 				ABB0F4412C27EC0F003C56A5 /* CircleButton.swift in Sources */,
 				BFB73BC72C061ABA00A9A10E /* EndPoint.swift in Sources */,
 				AB4D63F02C2A99E700E35084 /* ContestOutlineViewModel.swift in Sources */,
@@ -558,6 +580,7 @@
 				BFB73BC42C061ABA00A9A10E /* NetworkManager.swift in Sources */,
 				AB003E7F2BF6EF1600A163E8 /* SignUpViewModel.swift in Sources */,
 				AB0C0F722C5C8E3C007812C5 /* UserService.swift in Sources */,
+				AF3371142D11157800CC69B9 /* FCMDTO.swift in Sources */,
 				AB58AB272C246D280070420B /* MainTabType.swift in Sources */,
 				BF73033E2BF4A2CB00A482B3 /* SoonganApp.swift in Sources */,
 				BFB73BD92C06F43F00A9A10E /* AppState.swift in Sources */,
@@ -574,6 +597,7 @@
 				BFE3EC9F2C58A54900A9D4BB /* AuthError.swift in Sources */,
 				BF52334F2C20332000BA5683 /* UserData.swift in Sources */,
 				BFB73BC32C061ABA00A9A10E /* Interceptor.swift in Sources */,
+				AF33710E2D1110D300CC69B9 /* FCMEndPoint.swift in Sources */,
 				AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */,
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
 				BFE5DE902C58B6790018564C /* Secrets.swift in Sources */,
@@ -719,7 +743,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = BTX96P3YD4;
+				DEVELOPMENT_TEAM = NV9N45V5CF;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -754,7 +778,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soongan/Preview Content\"";
-				DEVELOPMENT_TEAM = BTX96P3YD4;
+				DEVELOPMENT_TEAM = NV9N45V5CF;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
