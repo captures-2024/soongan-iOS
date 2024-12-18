@@ -16,14 +16,15 @@ struct SignUpView: View {
     @FocusState private var focusedField: FocusField?
     
     @Environment(\.dismiss) var dismiss
-
     @StateObject var viewModel = SignUpViewModel()
-
+    
+    @State private var isCompleteButtonTapped = false  // 상태 추가
+    
     var body: some View {
         ZStack {
             Color.primaryA
                 .ignoresSafeArea()
-
+            
             VStack(spacing: 0) {
                 HStack {
                     backButton
@@ -31,9 +32,9 @@ struct SignUpView: View {
                 }
                 .padding(.leading, -24)
                 .padding(.top, 20)
-
+                
                 Spacer()
-
+                
                 if viewModel.state.isNicknameValid != .valid  {
                     nicknameTextField
                     Spacer()
@@ -55,6 +56,11 @@ struct SignUpView: View {
             focusedField = .nickname
         }
         .toolbar(.hidden)
+        .navigationDestination(for: SignUpViewType.self) { viewType in
+            if viewType == .final {
+                SignUpFinishView()
+            }
+        }
     }
 
     private var nicknameTextField: some View {
@@ -96,7 +102,6 @@ struct SignUpView: View {
                 viewModel.state.isYearValid == .invalid ?
                 Color.negative : Color(hex: 0xCACACA)
             )
-
             .padding(.horizontal, 12)
         }
     }
@@ -113,7 +118,6 @@ struct SignUpView: View {
         .font(.system(size: 24))
         .foregroundStyle(Color.primaryB)
     }
-
 
     private var nextButton: some View {
         Button(action: {
@@ -144,6 +148,7 @@ struct SignUpView: View {
 
     private var completeButton: some View {
         Button(action: {
+            isCompleteButtonTapped = true // 상태 변경
             AppState.shared.navigationPath.append(SignUpViewType.final)
         }, label: {
             VStack(spacing: 12) {
@@ -163,12 +168,6 @@ struct SignUpView: View {
             }
         })
         .disabled(viewModel.state.isYearValid != .valid)
-        .navigationDestination(for: SignUpViewType.self) { viewType in
-            switch viewType {
-            case .final:
-                SignUpFinishView()
-            }
-        }
     }
 
     private var nicknameLabel: some View {
@@ -235,8 +234,4 @@ struct SignUpTextFieldView: View {
             }
         }
     }
-}
-
-#Preview {
-    SignUpView()
 }

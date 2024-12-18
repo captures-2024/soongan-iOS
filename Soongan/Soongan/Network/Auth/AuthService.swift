@@ -13,3 +13,4 @@ struct AuthService {
         return await NetworkManager.shared.request(AuthEndPoint.login(body: body, userAgent: userAgent))
     }
 }
+

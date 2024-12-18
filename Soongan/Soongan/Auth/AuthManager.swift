@@ -42,7 +42,7 @@ final class AuthManager: NSObject {
                 if let error = error {
                     print(error)
                 } else {
-                    guard let idToken = oauthToken?.idToken else { return }
+                    guard let idToken = oauthToken?.accessToken else { return }
                     self?.loginWithKakao(kakaoIdToken: idToken)
                 }
             }
@@ -51,7 +51,7 @@ final class AuthManager: NSObject {
                 if let error = error {
                     print(error)
                 } else {
-                    guard let idToken = oauthToken?.idToken else { return }
+                    guard let idToken = oauthToken?.accessToken else { return }
                     self?.loginWithKakao(kakaoIdToken: idToken)
                 }
             }
@@ -60,10 +60,11 @@ final class AuthManager: NSObject {
 
     @MainActor
     private func loginWithKakao(kakaoIdToken: String) {
+        guard let fcmToken = KeyChainManager.readItem(key: "FCMToken") else { return }
         let loginRequest = LoginRequest(
             provider: "KAKAO",
             idToken: kakaoIdToken,
-            fcmToken: "") // TODO: fcm token 수정
+            fcmToken: fcmToken) // TODO: fcm token 수정
         
         Task {
             await self.loginToServer(request: loginRequest, userAgent: "IOS")
@@ -86,10 +87,22 @@ final class AuthManager: NSObject {
     
     func loginToServer(request: LoginRequest, userAgent: String) async {
         let result = await AuthService.loginServer(body: request, userAgent: userAgent)
-        
+        print(result?.responseData?.accessToken)
         if let tokens = result?.responseData {
+            print("Login to success")
             print("accessToken: \(tokens.accessToken)")
             print("refreshToken: \(tokens.refreshToken)")
+            
+            if KeyChainManager.itemExists(key: "accessToken") {
+                print("accessToken 있음")
+                KeyChainManager.updateItem(key: "accessToken", value: tokens.accessToken)
+                KeyChainManager.updateItem(key: "refreshToken", value: tokens.refreshToken)
+            } else {
+                print("accessToken 없음")
+                KeyChainManager.addItem(key: "accessToken", value: tokens.accessToken)
+                KeyChainManager.addItem(key: "refreshToken", value: tokens.refreshToken)
+            }
+            
         } else if result?.statusCode == 404 {
             // 로그인 실패(404)인 경우 회원가입 필요
             print("회원가입 필요")

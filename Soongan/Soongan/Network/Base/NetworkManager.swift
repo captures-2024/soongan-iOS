@@ -18,6 +18,7 @@ class NetworkManager {
         // 데이터 fetch 단계
             do {
                 print("Request Headers: \(endPoint.headers)")
+                print("EndPoint: \(endPoint)")
                 data = try result.get()
             } catch {
                 print("Data fetch error: \(error.localizedDescription)")
