@@ -11,48 +11,28 @@ import Alamofire
 class NetworkManager {
 	static let shared = NetworkManager()
 	
-	func request<T: Decodable>(_ endPoint: EndPoint) async -> OldBaseResponse<T>? {
-		let request = makeDataRequest(endPoint)
-		let result = await request.serializingData().result
-		var data = Foundation.Data()
-		do {
-			data = try result.get()
-		} catch {
-			print("data fetch error")
-			return nil
-		}
-		
-		do {
-			let decodedData = try data.decode(type: OldBaseResponse<T>.self, decoder: JSONDecoder())
-			return decodedData
-		} catch {
-			print("data decode error - origin data: \(String(data: data, encoding: .utf8) ?? "")")
-			return nil
-		}
-		
-	}
-	
 	func request<T: Decodable>(_ endPoint: EndPoint) async -> BaseResponse<T>? {
 		let request = makeDataRequest(endPoint)
 		let result = await request.serializingData().result
 		var data = Foundation.Data()
-		do {
-            print("request: " + "\(endPoint.headers)")
-			data = try result.get()
-		} catch {
-			print("data fetch error")
-			return nil
-		}
-		
-		do {
-			let decodedData = try data.decode(type: BaseResponse<T>.self, decoder: JSONDecoder())
-			return decodedData
-		} catch {
-			print("data decode error - origin data: \(String(data: data, encoding: .utf8) ?? "")")
-			return nil
-		}
-		
-	}
+        // 데이터 fetch 단계
+            do {
+                print("Request Headers: \(endPoint.headers)")
+                data = try result.get()
+            } catch {
+                print("Data fetch error: \(error.localizedDescription)")
+                print(endPoint)
+                return nil
+            }
+
+            // 데이터 decode 단계
+            guard let decodedData = try? JSONDecoder().decode(BaseResponse<T>.self, from: data) else {
+                print("Data decode error: \(String(data: data, encoding: .utf8) ?? "Invalid UTF-8")")
+                return nil
+            }
+            
+            return decodedData
+        }
 	
 	private func makeDataRequest(_ endPoint: EndPoint) -> DataRequest {
 		switch endPoint.task {

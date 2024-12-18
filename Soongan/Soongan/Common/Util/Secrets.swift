@@ -8,5 +8,5 @@
 import Foundation
 
 struct Secrets {
-    static let baseUrl = "https://www.soongan.site"
+    static let baseUrl = "https://api-dev.soongan.site/"
 }

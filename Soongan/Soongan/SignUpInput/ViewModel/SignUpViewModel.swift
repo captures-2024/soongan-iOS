@@ -105,7 +105,7 @@ class SignUpViewModel: ObservableObject {
                 return
             }
 
-            isDuplicated = response.data ?? false
+            isDuplicated = response.responseData ?? false
         }
     }
 
