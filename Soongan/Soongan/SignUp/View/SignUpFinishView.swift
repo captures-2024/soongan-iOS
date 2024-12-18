@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SignUpFinishView: View {
     @StateObject var appState = AppState.shared
-    
     var body: some View {
         ZStack {
             Image("background")
@@ -34,18 +33,18 @@ struct SignUpFinishView: View {
         }
         .toolbar(.hidden)
         .onAppear {
+            appState.navigationPath.append(SignUpFinishViewType.contestOutlineView)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                appState.navigationPath.append(SignUpFinishViewType.contestOutlineView)
-                       }
+            }
         }
         .navigationDestination(for: SignUpFinishViewType.self) { viewType in
-        
+            
             switch viewType {
             case .contestOutlineView:
                 ContestOutlineView()
             }
         }
-       
+        
     }
 }
 

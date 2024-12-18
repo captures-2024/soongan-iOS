@@ -41,4 +41,13 @@ extension UserEndPoint: EndPoint {
             return .requestParameters(parameters: params)
         }
     }
+    var headers: HTTPHeaders? {
+        switch self {
+        case let .checkNicknameValidation(parameter): //userAgent 헤더로 보내기
+            let authorization = "Bearer \(KeyChainManager.readItem(key: "accessToken"))" // Secrets에 저장된 키 사용
+
+
+            return ["Content-Type": "application/json", "Authorization": "\(authorization)"]
+        }
+    }
 }

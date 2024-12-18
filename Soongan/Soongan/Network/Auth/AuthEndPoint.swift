@@ -14,7 +14,7 @@ enum AuthEndPoint {
 
 extension AuthEndPoint: EndPoint {
     var baseURL: String {
-        return "\(Secrets.baseUrl)/members"
+        return "\(Secrets.baseUrl)/auth"
     }
     
     var path: String {

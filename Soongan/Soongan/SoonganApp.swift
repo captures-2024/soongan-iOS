@@ -80,20 +80,20 @@ extension AppDelegate: MessagingDelegate {
     // 파이어베이스 MessagingDelegate 설정
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
       print("Firebase registration token: \(String(describing: fcmToken))")
+        guard let fcmToken else { return }
+        
+        if KeyChainManager.itemExists(key: "FCMToken") {
+            print("FCM Token이 키체인에 이미 저장 되어 있음")
+            KeyChainManager.updateItem(key: "FCMToken", value: fcmToken)
+        } else {
+            KeyChainManager.addItem(key: "FCMToken", value: fcmToken)
+        }
+        
         Task {
-            var uuidData = UUID().uuidString
-            guard let token = fcmToken else { return }
-            let body = FCMRequest(token: token, deviceId: uuidData)
+            let uuidData = UUID().uuidString
+            let body = FCMRequest(token: fcmToken, deviceId: uuidData)
             let userAgent = "IOS"
-            
             _ = await FCMService.FCMService(body: body, userAgent: userAgent)
         }
-
-      let dataDict: [String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(
-        name: Notification.Name("FCMToken"),
-        object: nil,
-        userInfo: dataDict
-      )
     }
 }

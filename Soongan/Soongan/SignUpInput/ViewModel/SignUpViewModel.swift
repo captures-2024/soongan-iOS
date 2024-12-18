@@ -66,7 +66,7 @@ class SignUpViewModel: ObservableObject {
              .sink { [weak self] isDuplicated in
                  guard let self = self else { return }
 
-                 if isDuplicated {
+                 if isDuplicated == false {
                      state.nicknameMessage = "아이디가 중복되었습니다."
                      state.isNextButtonEnabled = false
                      state.isNicknameValid = .invalid

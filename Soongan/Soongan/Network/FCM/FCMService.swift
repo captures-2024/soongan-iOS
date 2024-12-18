@@ -22,9 +22,9 @@ struct FCMService {
                 let response: BaseResponse<FCMRegisterResponse>? = await NetworkManager.shared.request(FCMEndPoint.postFCM(body: body, userAgent: userAgent))
                 
                 if let response = response, let data = response.responseData {
-                    // 응답이 성공적으로 처리된 경우
-                    print("FCM Token: \(data.deviceId)")
-                    print("Device ID: \(data.token)")
+                    print("보내기 성공")
+                    print("FCM Token: \(data.id)")
+                    print("Device ID: \(data.deviceId)")
                     
                     // 첫 실행임을 기록
                     userDefaults.set(true, forKey: hasLaunchedKey)
