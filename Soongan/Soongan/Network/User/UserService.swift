@@ -13,15 +13,12 @@ struct UserService {
     static func checkNicknameValidation(parameter: String) async -> BaseResponse<Bool>? {
         return await NetworkManager.shared.request(UserEndPoint.checkNicknameValidation(parameter: parameter))
     }
+    
+    static func profileInfoToUpdata(body: ProfileRequest) async -> BaseResponse<ProfileRegisterResponse>? {
+        return await NetworkManager.shared.request(UserEndPoint.profileToServer(body: body))
+    }
+    static func birthYearToUpdata(body: Int) async -> BaseResponse<BirthYearResponse>? {
+        return await NetworkManager.shared.request(UserEndPoint.birthYearToServer(body: body))
+    }
 }
-//struct AuthService {
-//    static func loginServer(body: LoginRequest, userAgent: String) async -> Result<BaseResponse<LoginRegisterResponse>, Error> {
-//        return await NetworkManager.shared.request(AuthEndPoint.login(body: body, userAgent: userAgent))
-//    }
-//}
 
-//struct AuthService {
-//    static func loginServer(body: LoginRequest, userAgent: String) async -> BaseResponse<LoginRegisterResponse>? {
-//        return await NetworkManager.shared.request(AuthEndPoint.login(body: body, userAgent: userAgent))
-//    }
-//}

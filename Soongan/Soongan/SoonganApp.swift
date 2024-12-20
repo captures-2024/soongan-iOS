@@ -37,8 +37,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         //서버에 FCM 정보 등록하기(처음 실행 됐을때만 실행 그 이후 실행 안 됨)
         
-       
-        
         // 파이어베이스 설정
         FirebaseApp.configure()
         

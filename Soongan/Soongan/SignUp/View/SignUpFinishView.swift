@@ -33,15 +33,22 @@ struct SignUpFinishView: View {
         }
         .toolbar(.hidden)
         .onAppear {
-            appState.navigationPath.append(SignUpFinishViewType.contestOutlineView)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                let profileRequest = ProfileRequest(
+                    nickname: AppState.shared.nickName, selfIntroduction: "", profileImage: ""
+                    )
+                Task {
+                    await UserService.profileInfoToUpdata(body: profileRequest)
+                }
+                
+                appState.navigationPath.append(SignUpFinishViewType.mainTabView)
             }
         }
         .navigationDestination(for: SignUpFinishViewType.self) { viewType in
             
             switch viewType {
-            case .contestOutlineView:
-                ContestOutlineView()
+            case .mainTabView:
+                MainTabView()
             }
         }
         
@@ -49,7 +56,7 @@ struct SignUpFinishView: View {
 }
 
 enum SignUpFinishViewType {
-    case contestOutlineView
+    case mainTabView
 }
 
 #Preview {

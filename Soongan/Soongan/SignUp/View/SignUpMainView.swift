@@ -107,10 +107,13 @@ struct SignUpMainView: View {
             if error != nil || user == nil {
                 print("Not Sign In")
             } else {
+                print("Sign In")
+                
                 guard let profile = user?.profile else { return }
                 let data = UserData(name: profile.name, email: profile.email)
                 userData = data
                 isLogined = true
+                
             }
         }
     }

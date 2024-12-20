@@ -32,6 +32,7 @@
 		AF3371102D1110DD00CC69B9 /* FCMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF33710F2D1110DD00CC69B9 /* FCMService.swift */; };
 		AF3371122D11147400CC69B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF3371112D11147400CC69B9 /* GoogleService-Info.plist */; };
 		AF3371142D11157800CC69B9 /* FCMDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3371132D11157800CC69B9 /* FCMDTO.swift */; };
+		AF3371182D13C61500CC69B9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3371172D13C61500CC69B9 /* UserDTO.swift */; };
 		BF0EE28A2C2155AD005547E0 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */; };
 		BF52334F2C20332000BA5683 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52334E2C20332000BA5683 /* UserData.swift */; };
 		BF5233522C20333100BA5683 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5233512C20333100BA5683 /* AuthManager.swift */; };
@@ -89,6 +90,7 @@
 		AF33710F2D1110DD00CC69B9 /* FCMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMService.swift; sourceTree = "<group>"; };
 		AF3371112D11147400CC69B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF3371132D11157800CC69B9 /* FCMDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMDTO.swift; sourceTree = "<group>"; };
+		AF3371172D13C61500CC69B9 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		BF0EE2892C2155AD005547E0 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		BF52334E2C20332000BA5683 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BF5233512C20333100BA5683 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				AB0C0F6F2C5C8DCE007812C5 /* UserEndPoint.swift */,
 				AB0C0F712C5C8E3C007812C5 /* UserService.swift */,
+				AF3371172D13C61500CC69B9 /* UserDTO.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				AF33710E2D1110D300CC69B9 /* FCMEndPoint.swift in Sources */,
 				AB23BEFE2C61FEA700E12702 /* BlackButton.swift in Sources */,
 				BF5233522C20333100BA5683 /* AuthManager.swift in Sources */,
+				AF3371182D13C61500CC69B9 /* UserDTO.swift in Sources */,
 				BFE5DE902C58B6790018564C /* Secrets.swift in Sources */,
 				BFE5DE8E2C58B63A0018564C /* AuthService.swift in Sources */,
 				BFB73BC62C061ABA00A9A10E /* APITask.swift in Sources */,

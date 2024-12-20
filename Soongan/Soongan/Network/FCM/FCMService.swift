@@ -16,7 +16,9 @@ struct FCMService {
         // 첫 실행인지 체크
         if !userDefaults.bool(forKey: hasLaunchedKey) {
             print("앱이 처음 실행되었음. FCMService 함수 실행")
-            
+            // 첫 실행임을 기록
+            userDefaults.set(true, forKey: hasLaunchedKey)
+            userDefaults.synchronize() // 강제 동기화
             // Task를 사용하여 비동기 실행
             Task {
                 let response: BaseResponse<FCMRegisterResponse>? = await NetworkManager.shared.request(FCMEndPoint.postFCM(body: body, userAgent: userAgent))
@@ -26,9 +28,7 @@ struct FCMService {
                     print("FCM Token: \(data.id)")
                     print("Device ID: \(data.deviceId)")
                     
-                    // 첫 실행임을 기록
-                    userDefaults.set(true, forKey: hasLaunchedKey)
-                } else {
+                                   } else {
                     // 실패한 경우
                     print("FCM 요청 실패: 응답이 없음")
                 }
